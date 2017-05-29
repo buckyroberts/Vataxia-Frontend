@@ -1,13 +1,15 @@
 import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
-import allReducers from './js/reducers/index';
-import App from './js/components/app';
+import allReducers from './reducers/index';
+import App from './components/app';
+require('./assets/scss/style.scss');
+
 
 const logger = createLogger();
 const store = createStore(

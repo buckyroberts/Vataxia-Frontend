@@ -3,9 +3,10 @@ import UserList from '../containers/user-list';
 import UserDetails from '../containers/user-detail';
 require('../../scss/style.scss');
 
+
 const App = () => (
     <div>
-        <h2>User fdsf</h2>
+        <h2>Hi Dude</h2>
         <UserList />
         <hr />
         <h2>User Details</h2>

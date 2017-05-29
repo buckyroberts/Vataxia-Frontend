@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
     devServer: {
         inline: true,
-        contentBase: './src',
+        contentBase: './dist',
         port: 3000
     },
     devtool: 'cheap-module-eval-source-map',
-    entry: './dev/js/index.js',
+    entry: './src/index.js',
     module: {
         loaders: [
             {
@@ -24,7 +24,7 @@ module.exports = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'src'),
+        path: path.join(__dirname, 'dist'),
         filename: 'js/bundle.min.js'
     }
 };

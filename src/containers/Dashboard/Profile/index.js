@@ -5,7 +5,7 @@ class Profile extends Component {
 
     renderPost() {
         return (
-            <div className="card post">
+            <div className="card panel">
                 <div className="card-block">
                     <h4 className="card-title">Post Title</h4>
                     <h6 className="card-subtitle mb-2 text-muted">Date of Post</h6>

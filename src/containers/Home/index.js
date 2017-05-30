@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router'
 
 
-class Authentication extends Component {
+class Home extends Component {
 
     render() {
         return (
@@ -19,11 +19,14 @@ class Authentication extends Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/login">Login</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/profile">My Profile</Link>
+                            </li>
                         </ul>
                     </div>
                 </nav>
                 <div className="container-fluid">
-                    {this.props.children}
+                    Welcome to Vataxia, the greatest website ever.
                 </div>
             </div>
         );
@@ -31,4 +34,4 @@ class Authentication extends Component {
 
 }
 
-export default Authentication;
+export default Home;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router'
 
 
-class Authentication extends Component {
+class Dashboard extends Component {
 
     render() {
         return (
@@ -17,7 +17,7 @@ class Authentication extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/login">Login</Link>
+                                <Link className="nav-link" to="/profile">My Profile</Link>
                             </li>
                         </ul>
                     </div>
@@ -26,9 +26,11 @@ class Authentication extends Component {
                     {this.props.children}
                 </div>
             </div>
+
+
         );
     }
 
 }
 
-export default Authentication;
+export default Dashboard;

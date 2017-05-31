@@ -40,13 +40,20 @@ class Profile extends Component {
                 <div className="row">
                     <div className="col-2">
                         <img src="http://i.imgur.com/o7Doie2.jpg" className="img-fluid"/>
-                    </div>
-                    <div className="col-4">
                         <h4>Bucky Roberts</h4>
+                        <ul className="nav flex-column">
+                            <li className="nav-item">
+                                <a className="nav-link active">Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link">About</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link">Photos</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-10">
                         {this.renderPost()}
                         {this.renderPost()}
                     </div>

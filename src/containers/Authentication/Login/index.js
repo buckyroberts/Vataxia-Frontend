@@ -13,7 +13,7 @@ class Login extends Component {
                     <input type="email" id="inputEmail" className="form-control" placeholder="Email address" />
                     <label className="sr-only">Password</label>
                     <input type="password" id="inputPassword" className="form-control" placeholder="Password"/>
-                    <button className="btn btn-primary btn-block" type="submit">Sign in</button>
+                    <button className="btn btn-sm btn-primary btn-block" type="submit">Sign in</button>
                 </form>
             </div>
         );

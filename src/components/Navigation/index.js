@@ -30,6 +30,8 @@ class Navigation extends Component {
                             </a>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <Link className="dropdown-item" to="/update-password">Settings</Link>
+                                <li className="divider"/>
+                                <Link className="dropdown-item" to="/">Logout</Link>
                             </div>
                         </li>
                     </ul>

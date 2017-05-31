@@ -22,7 +22,7 @@ class Authentication extends Component {
                         </ul>
                     </div>
                 </nav>
-                <div className="container-fluid">
+                <div className="container">
                     {this.props.children}
                 </div>
             </div>

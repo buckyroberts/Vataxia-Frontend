@@ -10,7 +10,6 @@ class Home extends Component {
             <div className="Home">
                 <Navigation />
                 <div className="container-fluid">
-                    
                     <div className="row">
                         <div className="col-12">
                             Welcome to Vataxia, open source social network. Here are some buttons.
@@ -24,7 +23,6 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    
                     <div className="row">
                         <div className="col-12">
                             <div role="tabpanel">
@@ -47,7 +45,6 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         );

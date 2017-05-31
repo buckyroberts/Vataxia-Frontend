@@ -19,10 +19,18 @@ class Navigation extends Component {
                             <Link className="nav-link" to="/login">Login</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/profile">My Profile</Link>
+                            <Link className="nav-link" to="/profile">Profile</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/update-password">Account</Link>
+                    </ul>
+
+                    <ul className="nav navbar-nav navbar-right">
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+                            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <Link className="dropdown-item" to="/update-password">Settings</Link>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -1,0 +1,20 @@
+.Home {
+	margin-top: 54px + 20px;
+
+	.list-group-item {
+		border-radius: 0;
+		padding: 4px 12px;
+
+		&.active {
+			color: white;
+
+			&:hover {
+				color: white;
+			}
+
+		}
+
+
+	}
+
+}

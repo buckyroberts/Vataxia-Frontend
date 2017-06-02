@@ -1,20 +1,24 @@
 .Login {
 	margin-top: 54px + 20px;
 
-	form {
-		max-width: 330px;
+	.card {
 		margin: 0 auto;
+		max-width: 330px;
+		padding: 20px;
 
-		h4 {
-			margin-bottom: 20px;
-		}
+		form {
 
-		.form-control {
-			font-size: 12px;
-			margin-bottom: 10px;
+			h4 {
+				margin-bottom: 20px;
+			}
+
+			.form-control {
+				font-size: 12px;
+				margin-bottom: 10px;
+			}
+
 		}
 
 	}
-
 
 }

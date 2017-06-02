@@ -25,6 +25,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
     "redux": "^3.5.2",
+    "redux-form": "^6.3.2",
     "redux-logger": "^2.6.1",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",

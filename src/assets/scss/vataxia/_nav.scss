@@ -1,4 +1,22 @@
-.nav-tabs .nav-link {
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
+.nav-link {
+	padding: 0;
+}
+
+.nav-tabs {
+
+	.nav-link {
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+		padding: 0.5em 1em;
+	}
+
+}
+
+.nav-pills {
+
+	.nav-link {
+		border-radius: 0;
+		padding: 0.5em 1em;
+	}
+
 }

@@ -6,6 +6,10 @@ import './Profile.scss';
 
 class Profile extends Component {
 
+    renderLeftLink(url, title) {
+        return <Link activeClassName="active" className="list-group-item list-group-item-action" to={url}>{title}</Link>;
+    }
+
     render() {
         return (
             <div>
@@ -17,21 +21,11 @@ class Profile extends Component {
                                 <img src="http://i.imgur.com/o7Doie2.jpg" className="img-fluid"/>
                                 <h4>Bucky Roberts</h4>
                                 <div className="list-group">
-                                    <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/posts">
-                                        Home
-                                    </Link>
-                                    <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/about">
-                                        About
-                                    </Link>
-                                    <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/followers">
-                                        Followers
-                                    </Link>
-                                    <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/following">
-                                        Following
-                                    </Link>
-                                    <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/photos">
-                                        Photos
-                                    </Link>
+                                    {this.renderLeftLink('/profile/posts', 'Home')}
+                                    {this.renderLeftLink('/profile/about', 'About')}
+                                    {this.renderLeftLink('/profile/followers', 'Followers')}
+                                    {this.renderLeftLink('/profile/following', 'Following')}
+                                    {this.renderLeftLink('/profile/photos', 'Photos')}
                                 </div>
                             </div>
                             <div className="col-10">

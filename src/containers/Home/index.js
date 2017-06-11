@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Navigation from '../../components/Navigation';
 import Post from '../../components/Post';
 import './Home.scss';
+import Login from "./Login";
 
 
 class Home extends Component {
@@ -42,11 +43,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className="col-3">
-                            <div className="card">
-                                <div className="card-block">
-                                    <button type="button" className="btn btn-primary">New Post</button>{' '}
-                                </div>
-                            </div>
+                            <Login />
                         </div>
                     </div>
                 </div>

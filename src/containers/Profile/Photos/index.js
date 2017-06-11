@@ -5,78 +5,41 @@ import './Photos.scss';
 
 class Photos extends Component {
 
+    renderContent() {
+        return (
+            <div className="content">
+                <a className="title" href="#">This is the title of the post</a>
+                <div className="details">
+                    <a className="user">Bucky Roberts</a>
+                    {' · '}
+                    <span className="date">8/9/17</span>
+                </div>
+                <a className="comments">4 comments</a>
+            </div>
+        );
+    }
+
+    renderImages() {
+        const images = [
+            'http://i.imgur.com/8vCUis7.jpg',
+            'http://i.imgur.com/2ZwwiqU.png',
+            'http://i.imgur.com/clpy8NN.png',
+            'http://i.imgur.com/DEYHVgU.jpg',
+            'http://i.imgur.com/CqXcsZ9.png',
+            'http://i.imgur.com/2yGcoe2.jpg'
+        ];
+        return images.map((image, i) =>
+            <div className="card" key={i}>
+                <img className="card-img-top img-fluid" src={image}/>
+                {this.renderContent()}
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="card-columns Photos">
-                <div className="card">
-                    <img className="card-img-top img-fluid" src="http://i.imgur.com/8vCUis7.jpg"/>
-                    <div className="card-block">
-                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in
-                            to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-                <div className="card p-3">
-                    <blockquote className="card-block card-blockquote">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer>
-                            <small className="text-muted">
-                                Someone famous in <cite title="Source Title">Source Title</cite>
-                            </small>
-                        </footer>
-                    </blockquote>
-                </div>
-                <div className="card">
-                    <img className="card-img-top img-fluid" src="http://i.imgur.com/2ZwwiqU.png"/>
-                    <div className="card-block">
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <p className="card-text">
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-                <div className="card card-inverse card-primary p-3 text-center">
-                    <blockquote className="card-blockquote">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-                        <footer>
-                            <small>
-                                Someone famous in <cite title="Source Title">Source Title</cite>
-                            </small>
-                        </footer>
-                    </blockquote>
-                </div>
-                <div className="card text-center">
-                    <div className="card-block">
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <p className="card-text">
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-                <div className="card">
-                    <img className="card-img img-fluid" src="http://i.imgur.com/clpy8NN.png"/>
-                </div>
-                <div className="card p-3 text-right">
-                    <blockquote className="card-blockquote">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer>
-                            <small className="text-muted">
-                                Someone famous in <cite title="Source Title">Source Title</cite>
-                            </small>
-                        </footer>
-                    </blockquote>
-                </div>
-                <div className="card">
-                    <div className="card-block">
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This card has even longer content than the first to show that equal
-                            height action.</p>
-                        <p className="card-text">
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
+                {this.renderImages()}
             </div>
         );
     }

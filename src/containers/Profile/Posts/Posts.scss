@@ -1,48 +1,7 @@
 .Posts {
 
 	.card-block {
-		padding: 0;
-
-		.actions {
-			border-bottom: 1px solid #ddd;
-			border-top: 1px solid #ddd;
-			padding: 4px 12px;
-		}
-
-		.bottom {
-			background: #f9f9f9;
-			padding: 12px;
-		}
-
-		.media {
-
-			img	{
-				margin-right: 10px;
-				width: 64px;
-			}
-
-			&.reply {
-
-				img	{
-					width: 48px;
-				}
-
-			}
-
-			.media-body {
-
-				.user-name {
-					font-weight: bold;
-				}
-
-			}
-
-		}
-
-		.top {
-			padding: 12px;
-		}
-
+		padding: 10px;
 	}
 
 }

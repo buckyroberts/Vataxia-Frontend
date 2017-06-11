@@ -17,7 +17,6 @@ class Posts extends Component {
     render() {
         return (
             <div className="Posts">
-
                 <div role="tabpanel">
                     <ul className="nav nav-tabs" role="tablist">
                         <li className="nav-item">
@@ -45,13 +44,11 @@ class Posts extends Component {
                         </div>
                     </div>
                 </div>
-
                 <div className="card">
                     <div className="card-block">
                         {this.renderPosts()}
                     </div>
                 </div>
-
             </div>
         );
     }

@@ -23,6 +23,9 @@ class Profile extends Component {
                                     <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/about">
                                         About
                                     </Link>
+                                    <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/followers">
+                                        Followers
+                                    </Link>
                                     <Link activeClassName="active" className="list-group-item list-group-item-action" to="/profile/following">
                                         Following
                                     </Link>

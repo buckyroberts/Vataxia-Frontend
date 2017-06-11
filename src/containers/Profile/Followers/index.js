@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import FollowingUser from '../../../components/FollowingUser';
 
 
-class Following extends Component {
+class Followers extends Component {
 
-    renderFollowing() {
+    renderFollowers() {
         return [1, 2].map(id =>
             <FollowingUser
                 id={id}
@@ -17,11 +17,11 @@ class Following extends Component {
     render() {
         return (
             <div>
-                {this.renderFollowing()}
+                {this.renderFollowers()}
             </div>
         );
     }
 
 }
 
-export default connect(state => ({}))(Following);
+export default connect(state => ({}))(Followers);

@@ -3,7 +3,8 @@ import {IndexRoute, Route} from "react-router";
 import Home from "../containers/Home";
 import AccountRoutes from "../containers/Account/routes";
 import AuthenticationRoutes from "../containers/Authentication/routes";
-import DashboardRoutes from "../containers/Profile/routes";
+import MessagesRoutes from "../containers/Messages/routes";
+import ProfileRoutes from "../containers/Profile/routes";
 
 
 export default (
@@ -11,6 +12,7 @@ export default (
         <IndexRoute component={Home} />
         {AccountRoutes}
         {AuthenticationRoutes}
-        {DashboardRoutes}
+        {MessagesRoutes}
+        {ProfileRoutes}
     </Route>
 );

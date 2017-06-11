@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import Navigation from '../../components/Navigation';
+import Post from '../../components/Post';
 import './Home.scss';
 
 
 class Home extends Component {
+
+    renderPosts() {
+        return <Post/>;
+    }
 
     render() {
         return (
@@ -23,7 +28,7 @@ class Home extends Component {
                                 </ul>
                                 <div className="tab-content">
                                     <div role="tabpanel" className="tab-pane fade active show" id="following" aria-labelledby="following-tab" aria-expanded="true">
-                                        Following
+                                        {this.renderPosts()}
                                     </div>
                                     <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab" aria-expanded="false">
                                         All

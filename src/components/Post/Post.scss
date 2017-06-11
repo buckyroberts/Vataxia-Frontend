@@ -6,7 +6,35 @@ $col-padding: 0 6px;
 
 	.content {
 		float: left;
-		padding: $col-padding;
+		line-height: 15px;
+		padding: 0 4px;
+
+		a.comments {
+			color: #ababab;
+			font-size: 10px;
+			font-weight: bold;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+		}
+
+		a.title {
+			color: #3498db;
+			font-size: 14px;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+		}
+
+		.details {
+			color: #ababab;
+			font-size: 10px;
+		}
+
 	}
 
 	.rank-container {
@@ -38,8 +66,14 @@ $col-padding: 0 6px;
 		padding: 0 8px;
 		text-align: center;
 
-		.down-arrow, .up-arrow {
+		a.down-arrow, a.up-arrow {
 			color: #bdc3c7;
+			display: block;
+
+			&:hover {
+				cursor: pointer;
+			}
+
 		}
 
 		.score {

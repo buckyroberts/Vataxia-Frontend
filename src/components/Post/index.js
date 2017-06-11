@@ -8,12 +8,13 @@ class Post extends Component {
     renderContent() {
         return (
             <div className="content">
-                <div className="title">This is the title of the post</div>
+                <a className="title" href="#">This is the title of the post</a>
                 <div className="details">
                     <span className="user">Bucky Roberts</span>
-                    {' | '}
+                    {' · '}
                     <span className="date">8/9/17</span>
                 </div>
+                <a className="comments">4 comments</a>
             </div>
         );
     }
@@ -32,7 +33,9 @@ class Post extends Component {
     renderThumbnail() {
         return (
             <div className="thumbnail-container">
-                <img src="//b.thumbs.redditmedia.com/0bLGwYM2y0cUimoA7D7lNO3KYMBfZQGLgeYQrdqCOmk.jpg" className="thumbnail"/>
+                <a href="#">
+                    <img src="//b.thumbs.redditmedia.com/0bLGwYM2y0cUimoA7D7lNO3KYMBfZQGLgeYQrdqCOmk.jpg" className="thumbnail"/>
+                </a>
             </div>
         );
     }
@@ -40,15 +43,15 @@ class Post extends Component {
     renderVotes() {
         return (
             <div className="votes">
-                <div className="up-arrow">
+                <a className="up-arrow">
                     <i className="fa fa-arrow-up up-voted"/>
-                </div>
+                </a>
                 <div className="score up-voted">
                     26
                 </div>
-                <div className="down-arrow">
+                <a className="down-arrow">
                     <i className="fa fa-arrow-down"/>
-                </div>
+                </a>
             </div>
         );
     }

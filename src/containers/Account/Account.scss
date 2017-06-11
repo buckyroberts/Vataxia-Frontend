@@ -13,40 +13,25 @@
 		bottom: 0;
 		left: 0;
 		z-index: 1000;
-		padding: 20px;
+		padding: 20px 0;
 		overflow-x: hidden;
 		overflow-y: auto;
 		border-right: 1px solid #eee;
-	}
 
-	.sidebar {
-		padding-left: 0;
-		padding-right: 0;
-	}
+		.nav {
+			margin-bottom: 20px;
 
-	.sidebar .nav {
-		margin-bottom: 20px;
-	}
+			.nav-item {
+				width: 100%;
 
-	.sidebar .nav-item {
-		width: 100%;
-	}
+				.nav-link {
+					border-radius: 0;
+				}
 
-	.sidebar .nav-item + .nav-item {
-		margin-left: 0;
-	}
+			}
 
-	.sidebar .nav-link {
-		border-radius: 0;
-	}
+		}
 
-	.placeholders {
-		padding-bottom: 3rem;
-	}
-
-	.placeholder img {
-		padding-top: 1.5rem;
-		padding-bottom: 1.5rem;
 	}
 
 }

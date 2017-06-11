@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import './Login.scss'
 
 
@@ -15,7 +16,7 @@ class Login extends Component {
                             <button className="btn btn-primary btn-block" type="submit">Sign in</button>
                         </form>
                         <div className="create-account-container">
-                            <a className="create-account">Create an Account</a>
+                            <Link className="create-account" to="/register">Create an Account</Link>
                         </div>
                     </div>
                 </div>

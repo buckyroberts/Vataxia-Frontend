@@ -6,13 +6,11 @@ class Posts extends Component {
 
     renderReply() {
         return (
-            <div className="media">
-                <img className="img-fluid mr-3" src="http://i.imgur.com/4EMtxHB.png"/>
+            <div className="media reply">
+                <img className="img-fluid" src="http://i.imgur.com/4EMtxHB.png"/>
                 <div className="media-body">
-                    <h5 className="mt-0">Ashley Jones</h5>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                    vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    <div className="user-name">Ashley Jones</div>
+                    This is a reply
                 </div>
             </div>
         );
@@ -22,13 +20,21 @@ class Posts extends Component {
         return (
             <div className="card panel">
                 <div className="card-block">
-                    <h4 className="card-title">Post Title</h4>
-                    <h6 className="card-subtitle mb-2 text-muted">Date of Post</h6>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the card's content.</p>
-                    <a className="card-link">Like</a>
-                    <a className="card-link">Delete</a>
-                    {this.renderReply()}
+                    <div className="top">
+                        <div className="media">
+                            <img className="d-flex" src="http://i.imgur.com/o7Doie2.jpg"/>
+                            <div className="media-body">
+                                <div className="user-name">Bucky Roberts</div>
+                                This is my first post
+                            </div>
+                        </div>
+                    </div>
+                    <div className="actions">
+                        <a>Like</a> <a>Delete</a>
+                    </div>
+                    <div className="bottom">
+                        {this.renderReply()}
+                    </div>
                 </div>
             </div>
         );
@@ -37,7 +43,6 @@ class Posts extends Component {
     render() {
         return (
             <div className="Posts">
-                {this.renderPost()}
                 {this.renderPost()}
             </div>
         );

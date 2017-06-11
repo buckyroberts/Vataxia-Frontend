@@ -16,18 +16,15 @@ class Navigation extends Component {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<Link className="nav-link" to="/login">Login</Link>
-						</li>
-						<li className="nav-item">
-							<Link className="nav-link" to="/profile/">Profile</Link>
+							<Link className="nav-link" to="/profile/posts">Profile</Link>
 						</li>
 					</ul>
 
 					<ul className="nav navbar-nav navbar-right">
 						<li className="nav-item">
-							<a className="nav-link">
+							<Link className="nav-link" to="/messages/inbox">
 								<i className="fa fa-envelope"/>
-							</a>
+							</Link>
 						</li>
 						<li className="nav-item dropdown">
 							<a className="nav-link dropdown-toggle" href="http://example.com"

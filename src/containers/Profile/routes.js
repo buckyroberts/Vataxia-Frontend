@@ -1,11 +1,19 @@
 import React from 'react';
-import {IndexRoute, Route} from 'react-router';
+import {Route} from 'react-router';
 import Profile from "./";
-import Home from "./Home";
+import About from "./About";
+import Followers from "./Followers";
+import Following from "./Following";
+import Photos from "./Photos";
+import Posts from "./Posts";
 
 
 export default (
-	<Route path="/profile" component={Profile}>
-		<IndexRoute component={Home}/>
-	</Route>
+    <Route path="/profile" component={Profile}>
+        <Route path="about" component={About}/>
+        <Route path="followers" component={Followers}/>
+        <Route path="following" component={Following}/>
+        <Route path="photos" component={Photos}/>
+        <Route path="posts" component={Posts}/>
+    </Route>
 );

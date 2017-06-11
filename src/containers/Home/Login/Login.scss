@@ -1,0 +1,22 @@
+.Login {
+
+	.card {
+
+		.create-account-container {
+			margin-top: 10px;
+			text-align: center;
+
+			a.create-account {
+				color: #95a5a6;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+			}
+
+		}
+
+	}
+
+}

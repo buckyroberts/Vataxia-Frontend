@@ -1,0 +1,103 @@
+$col-padding: 0 6px;
+
+.Post {
+	display: flex;
+	margin: 8px 0;
+
+	.content {
+		float: left;
+		line-height: 15px;
+		padding: 0 4px;
+
+		a.comments {
+			color: #ababab;
+			font-size: 10px;
+			font-weight: bold;
+
+			&:hover {
+				cursor: pointer;
+				text-decoration: underline;
+			}
+
+		}
+
+		a.title {
+			color: #3498db;
+			font-size: 14px;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+		}
+
+		.details {
+			color: #ababab;
+			font-size: 10px;
+
+			a.user {
+
+				&:hover {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+	}
+
+	.rank-container {
+		align-items: center;
+		display: flex;
+		float: left;
+		padding: $col-padding;
+
+		.rank {
+			color: #95a5a6;
+			font-size: 13px;
+		}
+
+	}
+
+	.thumbnail-container {
+		float: left;
+		padding: $col-padding;
+		width: 80px;
+
+		img.thumbnail {
+			width: 100%;
+		}
+
+	}
+
+	.votes {
+		float: left;
+		line-height: 16px;
+		padding: 0 8px;
+		text-align: center;
+
+		a.down-arrow, a.up-arrow {
+			color: #bdc3c7;
+			display: block;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+		}
+
+		.score {
+			color: #95A5A6;
+			font-size: 13px;
+			font-weight: bold;
+		}
+
+		.up-voted {
+			color: #e67e22;
+		}
+
+	}
+
+}

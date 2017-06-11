@@ -9,7 +9,7 @@ class Register extends Component {
             <div className="Register">
                 <div className="card">
                     <form>
-                        <h4>Create an Account</h4>
+                        <h4>Register</h4>
                         <input type="email" id="email" className="form-control" placeholder="Email address" />
                         <input type="password" id="inputPassword" className="form-control" placeholder="Password"/>
                         <button className="btn btn-primary btn-block" type="submit">Submit</button>

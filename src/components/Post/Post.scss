@@ -16,6 +16,7 @@ $col-padding: 0 6px;
 
 			&:hover {
 				cursor: pointer;
+				text-decoration: underline;
 			}
 
 		}
@@ -33,6 +34,16 @@ $col-padding: 0 6px;
 		.details {
 			color: #ababab;
 			font-size: 10px;
+
+			a.user {
+
+				&:hover {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+
+			}
+
 		}
 
 	}

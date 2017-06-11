@@ -10,7 +10,7 @@ class Post extends Component {
             <div className="content">
                 <a className="title" href="#">This is the title of the post</a>
                 <div className="details">
-                    <span className="user">Bucky Roberts</span>
+                    <a className="user">Bucky Roberts</a>
                     {' · '}
                     <span className="date">8/9/17</span>
                 </div>

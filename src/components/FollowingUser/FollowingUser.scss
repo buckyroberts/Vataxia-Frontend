@@ -1,0 +1,51 @@
+.FollowingUser {
+	margin-bottom: 10px;
+
+	.card-block {
+		display: flex;
+		padding: 10px;
+
+		.media {
+			float: left;
+
+			img {
+				margin-right: 10px !important;
+				width: 40px;
+			}
+
+			.media-body {
+
+				a.name {
+					color: #3498db;
+					font-weight: 500;
+				}
+
+				.details {
+					color: #ababab;
+					font-size: 10px;
+				}
+
+			}
+
+		}
+
+		.right-container {
+			align-items: center;
+			display: flex;
+			margin-left: auto;
+			padding: 0 6px;
+
+			.right-content {
+
+				button {
+					font-size: 10px;
+				}
+
+			}
+
+		}
+
+
+	}
+
+}

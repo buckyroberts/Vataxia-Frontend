@@ -2,11 +2,9 @@
 	margin-bottom: 10px;
 
 	.card-block {
-		display: flex;
 		padding: 10px;
 
 		.media {
-			float: left;
 
 			img {
 				margin-right: 10px !important;
@@ -31,8 +29,6 @@
 
 		.right-container {
 			align-items: center;
-			display: flex;
-			margin-left: auto;
 			padding: 0 6px;
 
 			.right-content {

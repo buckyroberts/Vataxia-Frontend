@@ -11,7 +11,6 @@ class Photos extends Component {
                 <div className="card">
                     <img className="card-img-top img-fluid" src="http://i.imgur.com/8vCUis7.jpg"/>
                     <div className="card-block">
-                        <h4 className="card-title">Card title that wraps to a new line</h4>
                         <p className="card-text">This is a longer card with supporting text below as a natural lead-in
                             to additional content. This content is a little bit longer.</p>
                     </div>
@@ -29,7 +28,6 @@ class Photos extends Component {
                 <div className="card">
                     <img className="card-img-top img-fluid" src="http://i.imgur.com/2ZwwiqU.png"/>
                     <div className="card-block">
-                        <h4 className="card-title">Card title</h4>
                         <p className="card-text">This card has supporting text below as a natural lead-in to additional
                             content.</p>
                         <p className="card-text">
@@ -49,7 +47,6 @@ class Photos extends Component {
                 </div>
                 <div className="card text-center">
                     <div className="card-block">
-                        <h4 className="card-title">Card title</h4>
                         <p className="card-text">This card has supporting text below as a natural lead-in to additional
                             content.</p>
                         <p className="card-text">
@@ -72,7 +69,6 @@ class Photos extends Component {
                 </div>
                 <div className="card">
                     <div className="card-block">
-                        <h4 className="card-title">Card title</h4>
                         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to
                             additional content. This card has even longer content than the first to show that equal
                             height action.</p>

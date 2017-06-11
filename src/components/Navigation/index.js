@@ -19,7 +19,7 @@ class Navigation extends Component {
 							<Link className="nav-link" to="/login">Login</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/profile/">Profile</Link>
+							<Link className="nav-link" to="/profile/posts">Profile</Link>
 						</li>
 					</ul>
 

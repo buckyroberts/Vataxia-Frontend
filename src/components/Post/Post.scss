@@ -1,0 +1,39 @@
+$cell-padding: 6px;
+
+.Post {
+	display: flex;
+
+	.content {
+		float: left;
+		padding: $cell-padding;
+	}
+
+	.rank-container {
+		align-items: center;
+		display: flex;
+
+		.rank {
+			float: left;
+			padding: $cell-padding;
+		}
+
+	}
+
+	.thumbnail-container {
+		float: left;
+		padding: $cell-padding;
+		width: 80px;
+
+		img.thumbnail {
+			width: 100%;
+		}
+
+	}
+
+	.votes {
+		float: left;
+		padding: $cell-padding;
+		text-align: center;
+	}
+
+}

@@ -7,7 +7,12 @@ import './Home.scss';
 class Home extends Component {
 
     renderPosts() {
-        return <Post/>;
+        return [1, 2].map(post =>
+            <Post
+                key={post}
+                rank={post}
+            />
+        );
     }
 
     render() {

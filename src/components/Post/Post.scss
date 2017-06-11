@@ -1,27 +1,30 @@
-$cell-padding: 6px;
+$col-padding: 0 6px;
 
 .Post {
 	display: flex;
+	margin: 8px 0;
 
 	.content {
 		float: left;
-		padding: $cell-padding;
+		padding: $col-padding;
 	}
 
 	.rank-container {
 		align-items: center;
 		display: flex;
+		float: left;
+		padding: $col-padding;
 
 		.rank {
-			float: left;
-			padding: $cell-padding;
+			color: #95a5a6;
+			font-size: 13px;
 		}
 
 	}
 
 	.thumbnail-container {
 		float: left;
-		padding: $cell-padding;
+		padding: $col-padding;
 		width: 80px;
 
 		img.thumbnail {
@@ -32,8 +35,23 @@ $cell-padding: 6px;
 
 	.votes {
 		float: left;
-		padding: $cell-padding;
+		padding: 0 8px;
 		text-align: center;
+
+		.down-arrow, .up-arrow {
+			color: #bdc3c7;
+		}
+
+		.score {
+			color: #95A5A6;
+			font-size: 13px;
+			font-weight: bold;
+		}
+
+		.up-voted {
+			color: #e67e22;
+		}
+
 	}
 
 }

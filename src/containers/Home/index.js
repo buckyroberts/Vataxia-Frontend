@@ -16,6 +16,29 @@ class Home extends Component {
         );
     }
 
+    renderTabs() {
+        return (
+            <div role="tabpanel">
+                <ul className="nav nav-tabs" id="myTab" role="tablist">
+                    <li className="nav-item">
+                        <a className="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-expanded="true">All</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-expanded="false">Following</a>
+                    </li>
+                </ul>
+                <div className="tab-content">
+                    <div role="tabpanel" className="tab-pane fade active show" id="all" aria-labelledby="all-tab" aria-expanded="true">
+                        {this.renderPosts()}
+                    </div>
+                    <div className="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab" aria-expanded="false">
+                        Following
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="Home">
@@ -23,24 +46,7 @@ class Home extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-9">
-                            <div role="tabpanel">
-                                <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                    <li className="nav-item">
-                                        <a className="nav-link active" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-expanded="true">Following</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-expanded="false">All</a>
-                                    </li>
-                                </ul>
-                                <div className="tab-content">
-                                    <div role="tabpanel" className="tab-pane fade active show" id="following" aria-labelledby="following-tab" aria-expanded="true">
-                                        {this.renderPosts()}
-                                    </div>
-                                    <div className="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab" aria-expanded="false">
-                                        All
-                                    </div>
-                                </div>
-                            </div>
+                            {this.renderTabs()}
                         </div>
                         <div className="col-3">
                             <Login />

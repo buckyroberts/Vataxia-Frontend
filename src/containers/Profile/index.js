@@ -19,7 +19,7 @@ class Profile extends Component {
                         <div className="row">
                             <div className="col-2">
                                 <img src="http://i.imgur.com/o7Doie2.jpg" className="img-fluid"/>
-                                <h4>Bucky Roberts</h4>
+                                <div className="user-name">Bucky Roberts</div>
                                 <div className="list-group">
                                     {this.renderLeftLink('/profile/1/posts', 'Home')}
                                     {this.renderLeftLink('/profile/1/about', 'About')}

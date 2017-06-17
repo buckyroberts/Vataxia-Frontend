@@ -1,0 +1,62 @@
+.Compose {
+
+	.card {
+		margin: 12px;
+
+		.card-block {
+
+			.header {
+
+				.media {
+					line-height: 15px;
+
+					img {
+						margin-right: 6px;
+						width: 32px;
+					}
+
+					.details {
+						color: #ababab;
+						font-size: 10px;
+
+						a.receiver {
+							color: #ababab;
+
+							&:hover {
+								cursor: pointer;
+								text-decoration: underline;
+							}
+
+						}
+
+					}
+
+					.date {
+						color: #ababab;
+						font-size: 10px;
+					}
+
+					a.user {
+						color: #3498db;
+						font-size: 11px;
+						font-weight: bold;
+					}
+
+				}
+
+			}
+
+			form {
+				margin-top: 14px;
+
+				.form-group {
+					margin-bottom: 12px;
+				}
+
+			}
+
+		}
+
+	}
+
+}

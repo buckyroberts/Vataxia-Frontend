@@ -1,9 +1,22 @@
 form {
 
+	.btn {
+		font-size: 11px;
+	}
+
 	.form-control {
 		border-radius: 0;
 		font-size: 12px;
-		margin-bottom: 10px;
+		margin-bottom: 12px;
+	}
+
+	.form-group {
+		margin: 0;
+
+		label {
+			margin-bottom: 6px;
+		}
+
 	}
 
 }

@@ -10,9 +10,15 @@
 	.message-rows {
 		margin-top: 10px;
 
-		.message-row {
+		a.message-row {
 			border-bottom: 1px solid #e4e4e4;
+			color: #292b2c;
 			padding: 4px 12px;
+			text-decoration: none;
+
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.01);
+			}
 
 			.date {
 				color: #999;
@@ -20,6 +26,11 @@
 
 			.form-check {
 				margin: 0 10px 0 0;
+
+				input:hover {
+					cursor: default;
+				}
+
 			}
 
 			.subject {

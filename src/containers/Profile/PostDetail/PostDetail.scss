@@ -1,0 +1,50 @@
+.PostDetail {
+
+	.card {
+		margin-bottom: 10px;
+	}
+
+	.comment-section {
+
+		.card-block {
+
+			.comment {
+				line-height: 15px;
+				margin-bottom: 12px;
+
+				img {
+					margin-right: 6px;
+					width: 32px;
+				}
+
+				.content {
+
+				}
+
+				.date {
+					color: #ababab;
+					font-size: 10px;
+				}
+
+				a.user {
+					color: #3498db;
+					font-size: 11px;
+					font-weight: bold;
+				}
+
+			}
+
+		}
+
+	}
+
+	.post-overview {
+
+		.card-block {
+			margin: 2px 0;
+			padding: 4px;
+		}
+
+	}
+
+}

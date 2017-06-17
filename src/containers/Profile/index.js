@@ -21,11 +21,11 @@ class Profile extends Component {
                                 <img src="http://i.imgur.com/o7Doie2.jpg" className="img-fluid"/>
                                 <h4>Bucky Roberts</h4>
                                 <div className="list-group">
-                                    {this.renderLeftLink('/profile/posts', 'Home')}
-                                    {this.renderLeftLink('/profile/about', 'About')}
-                                    {this.renderLeftLink('/profile/followers', 'Followers')}
-                                    {this.renderLeftLink('/profile/following', 'Following')}
-                                    {this.renderLeftLink('/profile/photos', 'Photos')}
+                                    {this.renderLeftLink('/profile/1/posts', 'Home')}
+                                    {this.renderLeftLink('/profile/1/about', 'About')}
+                                    {this.renderLeftLink('/profile/1/followers', 'Followers')}
+                                    {this.renderLeftLink('/profile/1/following', 'Following')}
+                                    {this.renderLeftLink('/profile/1/photos', 'Photos')}
                                 </div>
                             </div>
                             <div className="col-10">

@@ -1,4 +1,4 @@
-.Posts {
+.PostList {
 
 	.card {
 
@@ -14,16 +14,12 @@
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
 		margin-bottom: 10px;
-		padding: 10px;
+		padding: 14px;
 
 		form {
 
 			::placeholder {
 				color: #bdc3c7;
-			}
-
-			.btn {
-				font-size: 11px;
 			}
 
 		}

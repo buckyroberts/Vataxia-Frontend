@@ -8,7 +8,7 @@ import Login from "./Login";
 class Home extends Component {
 
     renderPosts() {
-        return [1, 2].map(post =>
+        return [1, 2, 3, 4, 5].map(post =>
             <Post
                 key={post}
                 rank={post}

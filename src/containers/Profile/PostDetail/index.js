@@ -14,7 +14,7 @@ class PostDetail extends Component {
 						<div className="form-group">
 							<textarea className="form-control" id="exampleTextarea" rows="3"/>
 						</div>
-						<button type="submit" className="btn btn-primary">Submit</button>
+						<button type="submit" className="btn btn-primary">Comment</button>
 					</form>
 				</div>
 			</div>

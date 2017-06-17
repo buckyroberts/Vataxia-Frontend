@@ -8,7 +8,7 @@
 	}
 
 	.message-rows {
-		margin-top: 20px;
+		margin-top: 10px;
 
 		.message-row {
 			border-bottom: 1px solid #e4e4e4;
@@ -22,7 +22,9 @@
 				margin: 0 10px 0 0;
 			}
 
-			.subject {  }
+			.subject {
+				color: #444;
+			}
 
 			.user {
 				font-weight: bold;
@@ -73,6 +75,16 @@
 	.placeholder img {
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
+	}
+
+	.toolbar {
+		margin-top: 10px;
+		padding: 0 12px;
+
+		.btn {
+			font-size: 11px;
+		}
+
 	}
 
 }

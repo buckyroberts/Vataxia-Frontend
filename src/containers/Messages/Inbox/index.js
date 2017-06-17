@@ -4,6 +4,14 @@ import {connect} from 'react-redux';
 
 class Inbox extends Component {
 
+    renderButtons() {
+        return (
+            <div className="d-flex justify-content-end">
+                <button type="button" className="btn btn-danger">Compose</button>
+            </div>
+        );
+    }
+
     renderMessages() {
         return [1, 2, 3].map(message =>
             <div className="d-flex justify-content-start message-row">
@@ -21,8 +29,13 @@ class Inbox extends Component {
 
     render() {
         return (
-            <div className="message-rows">
-                {this.renderMessages()}
+            <div>
+                <div className="toolbar">
+                    {this.renderButtons()}
+                </div>
+                <div className="message-rows">
+                    {this.renderMessages()}
+                </div>
             </div>
         );
     }

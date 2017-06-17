@@ -8,7 +8,7 @@ class About extends Component {
         return (
             <div className="card">
                 <div className="card-block">
-                    About section
+                    About
                 </div>
             </div>
         );

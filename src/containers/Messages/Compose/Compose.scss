@@ -1,14 +1,10 @@
-.Read {
+.Compose {
 
 	.card {
-		margin: 14px;
+		margin: 12px;
 
 		.card-block {
-			padding: 14px;
-
-			.content {
-				margin-top: 2px;
-			}
+			padding: 12px;
 
 			.header {
 
@@ -51,9 +47,17 @@
 
 			}
 
-			.subject {
-				font-weight: bold;
-				margin-top: 12px;
+			form {
+				margin-top: 14px;
+
+				.btn {
+					font-size: 11px;
+				}
+
+				.form-group {
+					margin-bottom: 12px;
+				}
+
 			}
 
 		}

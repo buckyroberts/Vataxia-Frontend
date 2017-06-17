@@ -16,7 +16,7 @@ class Navigation extends Component {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<Link className="nav-link" to="/profile/posts">Profile</Link>
+							<Link className="nav-link" to="/profile/1/posts">Profile</Link>
 						</li>
 					</ul>
 

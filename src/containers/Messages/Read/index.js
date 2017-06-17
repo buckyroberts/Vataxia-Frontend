@@ -36,7 +36,7 @@ class Read extends Component {
 				<div className="toolbar">
 					{this.renderButtons()}
 				</div>
-				<div className="card message-details">
+				<div className="card">
 					<div className="card-block">
 						<div className="header">
 							{this.renderSender()}

@@ -10,7 +10,7 @@ import PostList from "./PostList";
 
 
 export default (
-	<Route path="/profile" component={Profile}>
+	<Route path="/profile/:userId" component={Profile}>
 		<Route path="about" component={About}/>
 		<Route path="followers" component={Followers}/>
 		<Route path="following" component={Following}/>

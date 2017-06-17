@@ -8,7 +8,7 @@ class Inbox extends Component {
 	renderButtons() {
 		return (
 			<div className="d-flex justify-content-end">
-				<button type="button" className="btn btn-danger">Compose</button>
+				<Link className="btn btn-danger" to="/messages/compose/1">Compose</Link>
 			</div>
 		);
 	}

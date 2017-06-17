@@ -9,7 +9,7 @@ class PostListItem extends Component {
 	renderContent() {
 		return (
 			<div className="content">
-				<Link className="title" to="/profile/posts/1">This is the title of the post</Link>
+				<Link className="title" to="/profile/1/posts/1">This is the title of the post</Link>
 				<div className="details">
 					<a className="user">Bucky Roberts</a>
 					{' · '}

@@ -1,7 +1,70 @@
+$standard-spacing: 12px;
+
 .PostDetail {
 
 	.card {
 		margin-bottom: 10px;
+	}
+
+	.comment-form {
+
+		.card-block {
+			padding: $standard-spacing;
+
+			form {
+
+				.form-group {
+					margin-bottom: $standard-spacing;
+				}
+
+			}
+
+		}
+
+	}
+
+	.comment-section {
+
+		.card-block {
+			padding: $standard-spacing $standard-spacing 0 $standard-spacing;
+
+			.comment {
+				line-height: 15px;
+				margin-bottom: $standard-spacing;
+
+				img {
+					margin-right: 6px;
+					width: 32px;
+				}
+
+				.content {
+					font-size: 13px;
+				}
+
+				.date {
+					color: #ababab;
+					font-size: 10px;
+				}
+
+				a.user {
+					color: #3498db;
+					font-size: 11px;
+					font-weight: bold;
+				}
+
+			}
+
+		}
+
+	}
+
+	.post-overview {
+
+		.card-block {
+			margin: 2px 0;
+			padding: 0;
+		}
+
 	}
 
 }

@@ -7,9 +7,9 @@ import Trash from "./Trash";
 
 
 export default (
-    <Route path="/messages" component={Messages}>
-        <Route path="inbox" component={Inbox} />
-        <Route path="sent" component={Sent} />
-        <Route path="trash" component={Trash} />
-    </Route>
+	<Route path="/messages" component={Messages}>
+		<Route path="inbox" component={Inbox}/>
+		<Route path="sent" component={Sent}/>
+		<Route path="trash" component={Trash}/>
+	</Route>
 );

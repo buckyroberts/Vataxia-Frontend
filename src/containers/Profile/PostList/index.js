@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
-import Post from '../../../components/Post';
-import './Posts.scss';
+import PostListItem from '../../../components/PostListItem';
+import './PostList.scss';
 
 
-class Posts extends Component {
+class PostList extends Component {
 
     renderPosts() {
         return [1, 2].map(post =>
-            <Post
-                key={post}
-                rank={post}
-            />
+            <PostListItem key={post}>
+                <div className="rank-container">
+                    <div className="rank">
+						{post}
+                    </div>
+                </div>
+            </PostListItem>
         );
     }
 
     render() {
         return (
-            <div className="Posts">
+            <div className="PostList">
                 <div role="tabpanel">
                     <ul className="nav nav-tabs" role="tablist">
                         <li className="nav-item">
@@ -55,4 +58,4 @@ class Posts extends Component {
 
 }
 
-export default Posts;
+export default PostList;

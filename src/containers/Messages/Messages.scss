@@ -7,6 +7,34 @@
 		border-bottom: 1px solid #eee;
 	}
 
+	.message-rows {
+		margin-top: 10px;
+
+		.message-row {
+			border-bottom: 1px solid #e4e4e4;
+			padding: 4px 12px;
+
+			.date {
+				color: #999;
+			}
+
+			.form-check {
+				margin: 0 10px 0 0;
+			}
+
+			.subject {
+				color: #444;
+			}
+
+			.user {
+				font-weight: bold;
+				margin-right: 24px;
+			}
+
+		}
+
+	}
+
 	.sidebar {
 		position: fixed;
 		top: 54px;
@@ -47,6 +75,16 @@
 	.placeholder img {
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
+	}
+
+	.toolbar {
+		margin-top: 10px;
+		padding: 0 12px;
+
+		.btn {
+			font-size: 11px;
+		}
+
 	}
 
 }

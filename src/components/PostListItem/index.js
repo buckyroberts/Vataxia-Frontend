@@ -7,11 +7,34 @@ import './PostListItem.scss';
 
 class PostListItem extends Component {
 
+	getVoteScoreStyling(post) {
+		if(this.isDownVoted(post)) return 'down-voted';
+		if(this.isUpVoted(post)) return 'up-voted';
+	}
+
 	getVoteTally(postId) {
 		const {postVotes} = this.props;
 		return Object.values(postVotes)
 			.filter(postVote => postVote.post === postId)
 			.reduce((acc, postVote) => acc + postVote.value, 0);
+	}
+
+	isDownVoted(post) {
+		const {activeUser, postVotes} = this.props;
+		return Object.values(postVotes)
+			.filter(postVote => postVote.post === post.id)
+			.filter(postVote => postVote.user === activeUser.id)
+			.filter(postVote => postVote.value === -1)
+			.length;
+	}
+
+	isUpVoted(post) {
+		const {activeUser, postVotes} = this.props;
+		return Object.values(postVotes)
+			.filter(postVote => postVote.post === post.id)
+			.filter(postVote => postVote.user === activeUser.id)
+			.filter(postVote => postVote.value === 1)
+			.length;
 	}
 
 	renderReplyCount(postId) {
@@ -63,13 +86,13 @@ class PostListItem extends Component {
 		return (
 			<div className="votes">
 				<a className="up-arrow">
-					<i className="fa fa-arrow-up up-voted"/>
+					<i className={`fa fa-arrow-up ${this.isUpVoted(post) && 'up-voted'}`}/>
 				</a>
-				<div className="score up-voted">
+				<div className={`score ${this.getVoteScoreStyling(post)}`}>
 					{this.getVoteTally(post.id)}
 				</div>
 				<a className="down-arrow">
-					<i className="fa fa-arrow-down"/>
+					<i className={`fa fa-arrow-down ${this.isDownVoted(post) && 'down-voted'}`}/>
 				</a>
 			</div>
 		);
@@ -94,6 +117,7 @@ PostListItem.propTypes = {
 };
 
 export default connect(state => ({
+	activeUser: state.activeUser,
 	postReplies: state.postReplies.data,
 	postVotes: state.postVotes.data,
 	users: state.users.data,

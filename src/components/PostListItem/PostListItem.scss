@@ -73,6 +73,7 @@ $col-padding: 0 6px;
 	}
 
 	.votes {
+		color: #95A5A6;
 		float: left;
 		line-height: 16px;
 		padding: 0 8px;
@@ -88,14 +89,17 @@ $col-padding: 0 6px;
 
 		}
 
+		.down-voted {
+			color: #e67e22;
+		}
+
 		.score {
-			color: #95A5A6;
 			font-size: 13px;
-			font-weight: bold;
+			font-weight: 600;
 		}
 
 		.up-voted {
-			color: #e67e22;
+			color: #27ae60;
 		}
 
 	}

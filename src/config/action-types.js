@@ -1,8 +1,7 @@
 const MODELS = [
 
 	// Account
-	'PROFILE',
-	'USER',
+	'USERS',
 
 ];
 
@@ -26,6 +25,7 @@ function addStatus(names) {
 function setUnset(models) {
 	return models.reduce((acc, model) => {
 		acc[`SET_${model}`] = `SET_${model}`;
+		acc[`UNSET_${model}`] = `UNSET_${model}`;
 		return acc
 	}, {});
 }

@@ -20,6 +20,7 @@ class Login extends Component {
 			<div className="Login">
 				<div className="card">
 					<div className="card-block">
+						<div className="heading">Login</div>
 						<form onSubmit={handleSubmit(this.formSubmit)}>
 							<Field component={renderInput} label="Email" name="email" type="email"/>
 							<Field component={renderInput} label="Password" name="password" type="password"/>

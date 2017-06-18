@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Navigation from '../../components/Navigation';
 import PostListItem from '../../components/PostListItem';
 import './Home.scss';
-import Login from "./Login";
 
 
 class Home extends Component {
@@ -44,11 +43,8 @@ class Home extends Component {
 				<Navigation />
 				<div className="container-fluid">
 					<div className="row">
-						<div className="col-9">
+						<div className="col-12">
 							{this.renderTabs()}
-						</div>
-						<div className="col-3">
-							<Login />
 						</div>
 					</div>
 				</div>

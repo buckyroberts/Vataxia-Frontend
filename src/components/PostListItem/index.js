@@ -7,6 +7,13 @@ import './PostListItem.scss';
 
 class PostListItem extends Component {
 
+	getVoteTally(postId) {
+		const {postVotes} = this.props;
+		return Object.values(postVotes)
+			.filter(postVote => postVote.post === postId)
+			.reduce((acc, postVote) => acc + postVote.value, 0);
+	}
+
 	renderReplyCount(postId) {
 		const {postReplies} = this.props;
 		const replies = Object.values(postReplies)
@@ -24,7 +31,7 @@ class PostListItem extends Component {
 		const {post} = this.props;
 		return (
 			<div className="content">
-				<Link className="title" to="/profile/1/posts/1">{post.title}</Link>
+				<Link className="title" to={`/profile/1/posts/${post.id}`}>{post.title}</Link>
 				<div className="details">
 					<a className="user">{this.renderUserFullName(post.user)}</a>
 					{' · '}
@@ -36,24 +43,26 @@ class PostListItem extends Component {
 	}
 
 	renderThumbnail() {
+		const {post} = this.props;
 		return (
 			<div className="thumbnail-container">
-				<a href="#">
-					<img src="//b.thumbs.redditmedia.com/0bLGwYM2y0cUimoA7D7lNO3KYMBfZQGLgeYQrdqCOmk.jpg"
-						 className="thumbnail"/>
-				</a>
+				<Link to={`/profile/1/posts/${post.id}`}>
+					<img className="thumbnail"
+						 src="//b.thumbs.redditmedia.com/0bLGwYM2y0cUimoA7D7lNO3KYMBfZQGLgeYQrdqCOmk.jpg"/>
+				</Link>
 			</div>
 		);
 	}
 
 	renderVotes() {
+		const {post} = this.props;
 		return (
 			<div className="votes">
 				<a className="up-arrow">
 					<i className="fa fa-arrow-up up-voted"/>
 				</a>
 				<div className="score up-voted">
-					26
+					{this.getVoteTally(post.id)}
 				</div>
 				<a className="down-arrow">
 					<i className="fa fa-arrow-down"/>
@@ -82,5 +91,6 @@ PostListItem.propTypes = {
 
 export default connect(state => ({
 	postReplies: state.postReplies.data,
+	postVotes: state.postVotes.data,
 	users: state.users.data,
 }))(PostListItem);

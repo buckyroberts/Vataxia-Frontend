@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getPostList} from '../../actions/posts/post/post-list';
 import Navigation from '../../components/Navigation';
 import PostListItem from '../../components/PostListItem';
 import './Home.scss';
 
 
 class Home extends Component {
+
+	componentDidMount() {
+		const {dispatch} = this.props;
+		dispatch(getPostList());
+	}
 
 	renderPosts() {
 		return [1, 2, 3, 4, 5].map(post =>
@@ -54,4 +61,4 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default connect(state => ({}))(Home);

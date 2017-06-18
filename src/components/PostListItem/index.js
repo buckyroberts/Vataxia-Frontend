@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import PropTypes from 'prop-types';
 import './PostListItem.scss';
 
 
 class PostListItem extends Component {
 
+	renderUserFullName(userId) {
+		const {users} = this.props;
+		const {first_name, last_name} = users[userId];
+		return `${first_name} ${last_name}`;
+	}
+
 	renderContent() {
+		const {post} = this.props;
 		return (
 			<div className="content">
-				<Link className="title" to="/profile/1/posts/1">This is the title of the post</Link>
+				<Link className="title" to="/profile/1/posts/1">{post.title}</Link>
 				<div className="details">
-					<a className="user">Bucky Roberts</a>
+					<a className="user">{this.renderUserFullName(post.user)}</a>
 					{' · '}
 					<span className="date">8/9/17</span>
 				</div>
@@ -61,4 +69,10 @@ class PostListItem extends Component {
 
 }
 
-export default connect(state => ({}))(PostListItem);
+PostListItem.propTypes = {
+	post: PropTypes.object.isRequired,
+};
+
+export default connect(state => ({
+	users: state.users.data
+}))(PostListItem);

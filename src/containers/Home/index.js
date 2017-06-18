@@ -14,12 +14,14 @@ class Home extends Component {
 	}
 
 	renderPosts() {
-		return [1, 2, 3, 4, 5].map(post =>
-			<PostListItem key={post}>
+		const {posts} = this.props;
+		return Object.values(posts).map((post, i) =>
+			<PostListItem
+				key={post.id}
+				post={post}
+			>
 				<div className="rank-container">
-					<div className="rank">
-						{post}
-					</div>
+					<div className="rank">{i + 1}</div>
 				</div>
 			</PostListItem>
 		);
@@ -61,4 +63,6 @@ class Home extends Component {
 
 }
 
-export default connect(state => ({}))(Home);
+export default connect(state => ({
+	posts: state.posts.data
+}))(Home);

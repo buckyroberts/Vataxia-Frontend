@@ -31,13 +31,17 @@ class PostListItem extends Component {
 		const {post} = this.props;
 		return (
 			<div className="content">
-				<Link className="title" to={`/profile/1/posts/${post.id}`}>{post.title}</Link>
+				<Link className="title" to={`/profile/1/posts/${post.id}`}>
+					{post.title}
+				</Link>
 				<div className="details">
 					<a className="user">{this.renderUserFullName(post.user)}</a>
 					{' · '}
 					<span className="date">{post.created_date}</span>
 				</div>
-				<a className="replies">{this.renderReplyCount(post.id)}</a>
+				<Link className="replies" to={`/profile/${post.user}/posts/${post.id}`}>
+					{this.renderReplyCount(post.id)}
+				</Link>
 			</div>
 		);
 	}
@@ -46,7 +50,7 @@ class PostListItem extends Component {
 		const {post} = this.props;
 		return (
 			<div className="thumbnail-container">
-				<Link to={`/profile/1/posts/${post.id}`}>
+				<Link to={`/profile/${post.user}/posts/${post.id}`}>
 					<img className="thumbnail"
 						 src="//b.thumbs.redditmedia.com/0bLGwYM2y0cUimoA7D7lNO3KYMBfZQGLgeYQrdqCOmk.jpg"/>
 				</Link>

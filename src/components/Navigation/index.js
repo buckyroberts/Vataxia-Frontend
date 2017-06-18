@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {connect} from 'react-redux';
+import {hashHistory, Link} from 'react-router';
+import {logout} from '../../actions/accounts/user/authentication';
 
 
 class Navigation extends Component {
+
+	logoutUser = () => {
+		const {dispatch} = this.props;
+		dispatch(logout());
+		hashHistory.push('/login');
+	};
 
 	render() {
 		return (
@@ -35,7 +43,7 @@ class Navigation extends Component {
 							<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 								<Link className="dropdown-item" to="/account/basic-information">Settings</Link>
 								<div className="divider"/>
-								<Link className="dropdown-item" to="/">Logout</Link>
+								<a className="dropdown-item" href="" onClick={this.logoutUser}>Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -46,4 +54,4 @@ class Navigation extends Component {
 
 }
 
-export default Navigation;
+export default connect(state => ({}))(Navigation);

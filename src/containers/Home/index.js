@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getPostList} from '../../actions/posts/post/post-list';
 import Navigation from '../../components/Navigation';
 import PostListItem from '../../components/PostListItem';
 import './Home.scss';
-import Login from "./Login";
 
 
 class Home extends Component {
 
+	componentDidMount() {
+		const {dispatch} = this.props;
+		dispatch(getPostList());
+	}
+
 	renderPosts() {
-		return [1, 2, 3, 4, 5].map(post =>
-			<PostListItem key={post}>
+		const {posts} = this.props;
+		return Object.values(posts).map((post, i) =>
+			<PostListItem
+				key={post.id}
+				post={post}
+			>
 				<div className="rank-container">
-					<div className="rank">
-						{post}
-					</div>
+					<div className="rank">{i + 1}</div>
 				</div>
 			</PostListItem>
 		);
@@ -44,11 +52,8 @@ class Home extends Component {
 				<Navigation />
 				<div className="container-fluid">
 					<div className="row">
-						<div className="col-9">
+						<div className="col-12">
 							{this.renderTabs()}
-						</div>
-						<div className="col-3">
-							<Login />
 						</div>
 					</div>
 				</div>
@@ -58,4 +63,6 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default connect(state => ({
+	posts: state.posts.data
+}))(Home);

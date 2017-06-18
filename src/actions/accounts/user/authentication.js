@@ -21,3 +21,8 @@ export const login = data => async dispatch => {
 		});
 	}
 };
+
+export const logout = () => {
+	localStorage.removeItem('activeUser');
+	return {type: actionTypes[`LOGOUT_SUCCESS`]};
+};

@@ -14,7 +14,7 @@ class Photos extends Component {
 					{' · '}
 					<span className="date">8/9/17</span>
 				</div>
-				<a className="comments">4 comments</a>
+				<a className="replies">4 replies</a>
 			</div>
 		);
 	}

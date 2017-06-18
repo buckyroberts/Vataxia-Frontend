@@ -7,6 +7,13 @@ import './PostListItem.scss';
 
 class PostListItem extends Component {
 
+	renderReplyCount(postId) {
+		const {postReplies} = this.props;
+		const replies = Object.values(postReplies)
+			.filter(postReply => postReply.post === postId);
+		return `${replies.length} replies`
+	}
+
 	renderUserFullName(userId) {
 		const {users} = this.props;
 		const {first_name, last_name} = users[userId];
@@ -21,9 +28,9 @@ class PostListItem extends Component {
 				<div className="details">
 					<a className="user">{this.renderUserFullName(post.user)}</a>
 					{' · '}
-					<span className="date">8/9/17</span>
+					<span className="date">{post.created_date}</span>
 				</div>
-				<a className="comments">4 comments</a>
+				<a className="replies">{this.renderReplyCount(post.id)}</a>
 			</div>
 		);
 	}
@@ -74,5 +81,6 @@ PostListItem.propTypes = {
 };
 
 export default connect(state => ({
-	users: state.users.data
+	postReplies: state.postReplies.data,
+	users: state.users.data,
 }))(PostListItem);

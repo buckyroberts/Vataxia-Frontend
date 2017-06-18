@@ -21,6 +21,7 @@
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.8.0",
     "normalizr": "^3.2.3",
+    "prop-types": "^15.5.10",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",

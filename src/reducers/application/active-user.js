@@ -5,10 +5,7 @@ export default function(state = null, action) {
 	switch (action.type) {
 
 		case actionTypes[`LOGIN_SUCCESS`]:
-			return {
-				...state,
-				...action.payload
-			};
+			return action.payload;
 
 	}
 	return state;

@@ -23,8 +23,6 @@ class Profile extends Component {
                                 <div className="list-group">
                                     {this.renderLeftLink('/profile/1/posts', 'Home')}
                                     {this.renderLeftLink('/profile/1/about', 'About')}
-                                    {this.renderLeftLink('/profile/1/followers', 'Followers')}
-                                    {this.renderLeftLink('/profile/1/following', 'Following')}
                                     {this.renderLeftLink('/profile/1/photos', 'Photos')}
                                 </div>
                             </div>

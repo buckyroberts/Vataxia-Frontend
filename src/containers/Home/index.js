@@ -27,19 +27,11 @@ class Home extends Component {
 						<a className="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab"
 						   aria-controls="all" aria-expanded="true">All</a>
 					</li>
-					<li className="nav-item">
-						<a className="nav-link" id="following-tab" data-toggle="tab" href="#following" role="tab"
-						   aria-controls="following" aria-expanded="false">Following</a>
-					</li>
 				</ul>
 				<div className="tab-content">
 					<div role="tabpanel" className="tab-pane fade active show" id="all" aria-labelledby="all-tab"
 						 aria-expanded="true">
 						{this.renderPosts()}
-					</div>
-					<div className="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab"
-						 aria-expanded="false">
-						Following
 					</div>
 				</div>
 			</div>

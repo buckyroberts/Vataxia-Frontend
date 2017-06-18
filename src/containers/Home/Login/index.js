@@ -1,29 +1,45 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import {Field, reduxForm} from 'redux-form';
+import {login} from '../../../actions/accounts/user/authentication';
+import {renderInput} from '../../../utils/redux-form-fields';
 import './Login.scss'
 
 
 class Login extends Component {
 
-    render() {
-        return (
-            <div className="Login">
-                <div className="card">
-                    <div className="card-block">
-                        <form>
-                            <input type="email" id="inputEmail" className="form-control" placeholder="Email address" />
-                            <input type="password" id="inputPassword" className="form-control" placeholder="Password"/>
-                            <button className="btn btn-primary btn-block" type="submit">Sign in</button>
-                        </form>
-                        <div className="create-account-container">
-                            <Link className="create-account" to="/register">Create an Account</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+	formSubmit = (data) => {
+		const {dispatch} = this.props;
+		dispatch(login(data));
+	};
+
+	render() {
+		const {handleSubmit} = this.props;
+		return (
+			<div className="Login">
+				<div className="card">
+					<div className="card-block">
+						<form onSubmit={handleSubmit(this.formSubmit)}>
+							<Field component={renderInput} label="Email" name="email" type="email"/>
+							<Field component={renderInput} label="Password" name="password" type="password"/>
+							<button className="btn btn-primary btn-block" type="submit">Sign in</button>
+						</form>
+						<div className="create-account-container">
+							<Link className="create-account" to="/register">Create an Account</Link>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
 
 }
 
-export default Login;
+Login = reduxForm({
+	form: 'Login'
+})(Login);
+
+export default connect(state => ({
+	activeUser: state.activeUser
+}))(Login);

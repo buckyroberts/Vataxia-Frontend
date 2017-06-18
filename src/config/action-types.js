@@ -1,7 +1,10 @@
 const MODELS = [
 
-	// Account
+	// Accounts
 	'USERS',
+
+	// Posts
+	'POSTS',
 
 ];
 
@@ -13,22 +16,23 @@ const VIEWS = [
 
 ];
 
-function addStatus(names) {
+const addStatus = names => {
 	return names.reduce((acc, name) => {
 		acc[`${name}_PENDING`] = `${name}_PENDING`;
 		acc[`${name}_SUCCESS`] = `${name}_SUCCESS`;
 		acc[`${name}_ERROR`] = `${name}_ERROR`;
 		return acc;
 	}, {});
-}
+};
 
-function setUnset(models) {
-	return models.reduce((acc, model) => {
-		acc[`SET_${model}`] = `SET_${model}`;
-		acc[`UNSET_${model}`] = `UNSET_${model}`;
-		return acc
-	}, {});
-}
+const setUnset = models => {
+	let results = [];
+	models.forEach(model => {
+		results.push(`SET_${model}`);
+		results.push(`UNSET_${model}`);
+	});
+	return results;
+};
 
 const actionTypes = {
 	...addStatus(setUnset(MODELS)),

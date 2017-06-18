@@ -8,6 +8,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.1",

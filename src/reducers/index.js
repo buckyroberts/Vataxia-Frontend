@@ -6,6 +6,8 @@ import actionTypes from '../config/action-types';
 import activeUser from './application/active-user';
 
 // Models
+import postReplies from './models/replies/post-reply';
+import postVotes from './models/votes/post-vote';
 import posts from './models/posts/post';
 import users from './models/accounts/users';
 
@@ -17,6 +19,8 @@ const appReducer = combineReducers({
 	activeUser,
 
 	// Models
+	postReplies,
+	postVotes,
 	posts,
 	users,
 

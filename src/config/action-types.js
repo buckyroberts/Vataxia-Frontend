@@ -6,6 +6,12 @@ const MODELS = [
 	// Posts
 	'POSTS',
 
+	// Replies
+	'POST_REPLIES',
+
+	// Votes
+	'POST_VOTES',
+
 ];
 
 const VIEWS = [

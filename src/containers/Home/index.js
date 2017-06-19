@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getPostList} from '../../actions/posts/post/post-list';
+import {getPostList} from '../../actions/posts/post/list';
 import Navigation from '../../components/Navigation';
 import PostListItem from '../../components/PostListItem';
 import './Home.scss';

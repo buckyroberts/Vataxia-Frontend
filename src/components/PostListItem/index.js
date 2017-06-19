@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
-import {createPostVote} from '../../actions/votes/post-vote/post-vote-create';
+import {createPostVote} from '../../actions/votes/post-vote/create';
+import {deletePostVote} from '../../actions/votes/post-vote/delete';
 import './PostListItem.scss';
 
 
@@ -29,7 +30,7 @@ class PostListItem extends Component {
 			}));
 		}
 		if(this.usersVoteValue() === -1) {
-			console.log('DELETE down vote');
+			dispatch(deletePostVote(this.usersVote()));
 		}
 		if(this.usersVoteValue() === 1) {
 			console.log('PATCH, change 1 to -1');
@@ -48,7 +49,7 @@ class PostListItem extends Component {
 			console.log('PATCH, change -1 to 1');
 		}
 		if(this.usersVoteValue() === 1) {
-			console.log('DELETE up vote');
+			dispatch(deletePostVote(this.usersVote()));
 		}
 	};
 
@@ -110,6 +111,15 @@ class PostListItem extends Component {
 				</a>
 			</div>
 		);
+	}
+
+	usersVote() {
+		const {activeUser, post, postVotes} = this.props;
+		const vote = Object.values(postVotes)
+			.filter(postVote => postVote.post === post.id)
+			.filter(postVote => postVote.user === activeUser.id);
+		if (vote.length) return vote[0];
+		return null;
 	}
 
 	usersVoteValue() {

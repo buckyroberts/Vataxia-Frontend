@@ -13,9 +13,9 @@ class PostList extends Component {
 	}
 
 	renderPosts() {
-		const {activeUser, posts} = this.props;
+		const {params: {userId}, posts} = this.props;
 		return Object.values(posts)
-			.filter(post => post.user === activeUser.id)
+			.filter(post => post.user === Number(userId))
 			.map((post, i) =>
 				<PostListItem
 					key={post.id}
@@ -70,6 +70,5 @@ class PostList extends Component {
 }
 
 export default connect(state => ({
-	activeUser: state.activeUser,
 	posts: state.posts.data
 }))(PostList);

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {createPostVote} from '../../actions/votes/post-vote/create';
 import {deletePostVote} from '../../actions/votes/post-vote/delete';
 import {editPostVote} from '../../actions/votes/post-vote/edit';
+import {getUsersFullName} from '../../utils/user';
 import './PostListItem.scss';
 
 
@@ -67,21 +68,15 @@ class PostListItem extends Component {
 		return `${replies.length} replies`
 	}
 
-	renderUserFullName(userId) {
-		const {users} = this.props;
-		const {first_name, last_name} = users[userId];
-		return `${first_name} ${last_name}`;
-	}
-
 	renderContent() {
-		const {post} = this.props;
+		const {post, users} = this.props;
 		return (
 			<div className="content">
 				<Link className="title" to={`/profile/1/posts/${post.id}`}>
 					{post.title}
 				</Link>
 				<div className="details">
-					<Link className="user" to={`/profile/1/posts`}>{this.renderUserFullName(post.user)}</Link>
+					<Link className="user" to={`/profile/1/posts`}>{getUsersFullName(users, post.user)}</Link>
 					{' · '}
 					<span className="date">{post.created_date}</span>
 				</div>

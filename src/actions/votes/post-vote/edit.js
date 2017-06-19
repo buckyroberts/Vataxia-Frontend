@@ -1,0 +1,23 @@
+import axios from 'axios';
+import {normalize} from 'normalizr';
+import actionTypes from '../../../config/action-types';
+import settings from '../../../config/settings';
+import {setNormalized} from '../../../utils/general';
+import {POST_VOTE} from '../../../utils/normalize';
+import {tokenHeader} from '../../../utils/requestHeaders';
+
+
+export const editPostVote = data => async dispatch => {
+	const MODEL = 'POST_VOTES';
+	dispatch({type: actionTypes[`SET_${MODEL}_PENDING`]});
+	try {
+		const response = await axios.patch(`${settings.API_ROOT}/post_votes/${data.id}`, data, tokenHeader());
+		const {entities} = normalize(response.data, POST_VOTE);
+		setNormalized(dispatch, entities);
+	} catch (error) {
+		dispatch({
+			type: actionTypes[`SET_${MODEL}_ERROR`],
+			payload: error
+		});
+	}
+};

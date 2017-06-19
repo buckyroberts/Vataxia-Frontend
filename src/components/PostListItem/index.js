@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 import {createPostVote} from '../../actions/votes/post-vote/create';
 import {deletePostVote} from '../../actions/votes/post-vote/delete';
+import {editPostVote} from '../../actions/votes/post-vote/edit';
 import './PostListItem.scss';
 
 
@@ -33,7 +34,10 @@ class PostListItem extends Component {
 			dispatch(deletePostVote(this.usersVote()));
 		}
 		if(this.usersVoteValue() === 1) {
-			console.log('PATCH, change 1 to -1');
+			dispatch(editPostVote({
+				...this.usersVote(),
+				value: -1
+			}));
 		}
 	};
 
@@ -46,7 +50,10 @@ class PostListItem extends Component {
 			}));
 		}
 		if(this.usersVoteValue() === -1) {
-			console.log('PATCH, change -1 to 1');
+			dispatch(editPostVote({
+				...this.usersVote(),
+				value: 1
+			}));
 		}
 		if(this.usersVoteValue() === 1) {
 			dispatch(deletePostVote(this.usersVote()));

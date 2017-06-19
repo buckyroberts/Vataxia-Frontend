@@ -1,5 +1,5 @@
 function apiToken() {
-	const user = JSON.parse(localStorage.getItem('user')) || {};
+	const user = JSON.parse(localStorage.getItem('activeUser')) || {};
 	return user.token;
 }
 

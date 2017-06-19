@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
+import {createPostVote} from '../../actions/votes/post-vote/post-vote-create';
 import './PostListItem.scss';
 
 
@@ -20,8 +21,12 @@ class PostListItem extends Component {
 	}
 
 	handleDownArrowClick = () => {
+		const {dispatch, post} = this.props;
 		if(this.usersVoteValue() === null) {
-			console.log('Create a down vote');
+			dispatch(createPostVote({
+				post: post.id,
+				value: -1
+			}));
 		}
 		if(this.usersVoteValue() === -1) {
 			console.log('DELETE down vote');
@@ -32,8 +37,12 @@ class PostListItem extends Component {
 	};
 
 	handleUpArrowClick = () => {
+		const {dispatch, post} = this.props;
 		if(this.usersVoteValue() === null) {
-			console.log('Create an up vote');
+			dispatch(createPostVote({
+				post: post.id,
+				value: 1
+			}));
 		}
 		if(this.usersVoteValue() === -1) {
 			console.log('PATCH, change -1 to 1');

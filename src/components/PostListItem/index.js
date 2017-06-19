@@ -72,11 +72,11 @@ class PostListItem extends Component {
 		const {post, users} = this.props;
 		return (
 			<div className="content">
-				<Link className="title" to={`/profile/1/posts/${post.id}`}>
+				<Link className="title" to={`/profile/${post.user}/posts/${post.id}`}>
 					{post.title}
 				</Link>
 				<div className="details">
-					<Link className="user" to={`/profile/1/posts`}>{getUsersFullName(users, post.user)}</Link>
+					<Link className="user" to={`/profile/${post.user}/posts`}>{getUsersFullName(users, post.user)}</Link>
 					{' · '}
 					<span className="date">{post.created_date}</span>
 				</div>

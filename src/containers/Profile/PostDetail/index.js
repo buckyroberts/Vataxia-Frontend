@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
 import './PostDetail.scss'
 
 
 class PostDetail extends Component {
+
+	componentDidMount() {
+		const {dispatch, params: {postId}} = this.props;
+		dispatch(getPost(postId));
+	}
 
 	renderCommentForm() {
 		return (
@@ -47,25 +53,33 @@ class PostDetail extends Component {
 	}
 
 	renderPostOverview() {
+		const {post} = this.props;
 		return (
 			<div className="card post-overview">
 				<div className="card-block">
-					<PostListItem/>
+					<PostListItem
+						key={post.id}
+						post={post}
+					/>
 				</div>
 			</div>
 		);
 	}
 
 	render() {
+		const {post} = this.props;
+		if (!post) return null;
 		return (
 			<div className="PostDetail">
 				{this.renderPostOverview()}
 				{this.renderCommentForm()}
-				{this.renderCommentSection()}
+				{/*{this.renderCommentSection()}*/}
 			</div>
 		);
 	}
 
 }
 
-export default connect(state => ({}))(PostDetail);
+export default connect((state, props) => ({
+	post: state.posts.data[props.params.postId]
+}))(PostDetail);

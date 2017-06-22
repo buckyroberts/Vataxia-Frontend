@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
 import {getUsersFullName} from '../../../utils/user';
+import ReplyForm from './ReplyForm';
 import './PostDetail.scss'
 
 
@@ -14,15 +15,11 @@ class PostDetail extends Component {
 	}
 
 	renderReplyForm() {
+		const {params: {postId}} = this.props;
 		return (
 			<div className="card reply-form">
 				<div className="card-block">
-					<form>
-						<div className="form-group">
-							<textarea className="form-control" id="exampleTextarea" rows="3"/>
-						</div>
-						<button type="submit" className="btn btn-primary">Comment</button>
-					</form>
+					<ReplyForm postId={Number(postId)}/>
 				</div>
 			</div>
 		);

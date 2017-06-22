@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
 import {getUsersFullName} from '../../../utils/user';
@@ -35,7 +36,7 @@ class PostDetail extends Component {
 						<img className="d-flex" src="http://i.imgur.com/uuykYlB.png"/>
 					</a>
 					<div className="media-body">
-						<a className="user" href="">{getUsersFullName(users, postReply.user)}</a>
+						<Link className="user" to={`/profile/${postReply.user}/posts`}>{getUsersFullName(users, postReply.user)}</Link>
 						<span className="date"> · {postReply.modified_date}</span>
 						<div className="content">{postReply.body}</div>
 					</div>

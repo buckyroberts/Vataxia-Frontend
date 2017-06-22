@@ -9,7 +9,7 @@ import './Login.scss'
 
 class Login extends Component {
 
-	formSubmit = (data) => {
+	formSubmit = data => {
 		const {dispatch} = this.props;
 		dispatch(login(data));
 	};

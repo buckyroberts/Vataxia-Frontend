@@ -11,11 +11,11 @@ export default function (InnerComponent) {
 		componentWillMount() {
 			const {activeUser, dispatch} = this.props;
 			if (!activeUser) {
-				const user = localStorage.getItem('activeUser');
-				if (user) {
+				const data = localStorage.getItem('activeUser');
+				if (data) {
 					dispatch({
 						type: actionTypes[`LOGIN_SUCCESS`],
-						payload: JSON.parse(user)
+						payload: JSON.parse(data)
 					});
 				} else {
 					hashHistory.push('/login');

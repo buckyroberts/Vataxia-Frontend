@@ -13,6 +13,7 @@ class Navigation extends Component {
 	};
 
 	render() {
+		const {activeUser} = this.props;
 		return (
 			<nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
 				<button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -24,7 +25,7 @@ class Navigation extends Component {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<Link className="nav-link" to="/profile/1/posts">Profile</Link>
+							<Link className="nav-link" to={`/profile/${activeUser.id}/posts`}>Profile</Link>
 						</li>
 					</ul>
 
@@ -35,7 +36,7 @@ class Navigation extends Component {
 							</Link>
 						</li>
 						<li className="nav-item dropdown">
-							<a className="nav-link dropdown-toggle" href="http://example.com"
+							<a className="nav-link dropdown-toggle" href=""
 							   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
 							   aria-expanded="false">
 								Account
@@ -54,4 +55,6 @@ class Navigation extends Component {
 
 }
 
-export default connect(state => ({}))(Navigation);
+export default connect(state => ({
+	activeUser: state.activeUser,
+}))(Navigation);

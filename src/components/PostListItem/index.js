@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
+import {createPostVote} from '../../actions/votes/post-vote/create';
+import {deletePostVote} from '../../actions/votes/post-vote/delete';
+import {editPostVote} from '../../actions/votes/post-vote/edit';
+import {getUsersFullName} from '../../utils/user';
 import './PostListItem.scss';
 
 
@@ -20,26 +24,40 @@ class PostListItem extends Component {
 	}
 
 	handleDownArrowClick = () => {
+		const {dispatch, post} = this.props;
 		if(this.usersVoteValue() === null) {
-			console.log('Create a down vote');
+			dispatch(createPostVote({
+				post: post.id,
+				value: -1
+			}));
 		}
 		if(this.usersVoteValue() === -1) {
-			console.log('DELETE down vote');
+			dispatch(deletePostVote(this.usersVote()));
 		}
 		if(this.usersVoteValue() === 1) {
-			console.log('PATCH, change 1 to -1');
+			dispatch(editPostVote({
+				...this.usersVote(),
+				value: -1
+			}));
 		}
 	};
 
 	handleUpArrowClick = () => {
+		const {dispatch, post} = this.props;
 		if(this.usersVoteValue() === null) {
-			console.log('Create an up vote');
+			dispatch(createPostVote({
+				post: post.id,
+				value: 1
+			}));
 		}
 		if(this.usersVoteValue() === -1) {
-			console.log('PATCH, change -1 to 1');
+			dispatch(editPostVote({
+				...this.usersVote(),
+				value: 1
+			}));
 		}
 		if(this.usersVoteValue() === 1) {
-			console.log('DELETE up vote');
+			dispatch(deletePostVote(this.usersVote()));
 		}
 	};
 
@@ -50,21 +68,15 @@ class PostListItem extends Component {
 		return `${replies.length} replies`
 	}
 
-	renderUserFullName(userId) {
-		const {users} = this.props;
-		const {first_name, last_name} = users[userId];
-		return `${first_name} ${last_name}`;
-	}
-
 	renderContent() {
-		const {post} = this.props;
+		const {post, users} = this.props;
 		return (
 			<div className="content">
-				<Link className="title" to={`/profile/1/posts/${post.id}`}>
+				<Link className="title" to={`/profile/${post.user}/posts/${post.id}`}>
 					{post.title}
 				</Link>
 				<div className="details">
-					<Link className="user" to={`/profile/1/posts`}>{this.renderUserFullName(post.user)}</Link>
+					<Link className="user" to={`/profile/${post.user}/posts`}>{getUsersFullName(users, post.user)}</Link>
 					{' · '}
 					<span className="date">{post.created_date}</span>
 				</div>
@@ -101,6 +113,15 @@ class PostListItem extends Component {
 				</a>
 			</div>
 		);
+	}
+
+	usersVote() {
+		const {activeUser, post, postVotes} = this.props;
+		const vote = Object.values(postVotes)
+			.filter(postVote => postVote.post === post.id)
+			.filter(postVote => postVote.user === activeUser.id);
+		if (vote.length) return vote[0];
+		return null;
 	}
 
 	usersVoteValue() {

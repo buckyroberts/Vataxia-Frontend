@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router';
+import Authenticated from '../../containers/HOC/Authenticated';
 import Profile from "./";
 import About from "./About";
 import Followers from "./Followers";
@@ -10,7 +11,7 @@ import PostList from "./PostList";
 
 
 export default (
-	<Route path="/profile/:userId" component={Profile}>
+	<Route path="/profile/:userId" component={Authenticated(Profile)}>
 		<Route path="about" component={About}/>
 		<Route path="followers" component={Followers}/>
 		<Route path="following" component={Following}/>

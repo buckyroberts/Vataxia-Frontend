@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
-import {renderInput} from '../utils/redux-form-fields';
+import {renderInput} from '../../../../utils/redux-form-fields';
 
 
-class SampleForm extends Component {
+class UpdatePasswordForm extends Component {
 
 	formSubmit = data => {
 		const {dispatch} = this.props;
@@ -15,7 +15,7 @@ class SampleForm extends Component {
 		const {handleSubmit} = this.props;
 		return (
 			<form onSubmit={handleSubmit(this.formSubmit)}>
-				<Field component={renderInput} label="Sample" name="sample" type="text"/>
+				<Field component={renderInput} label="New password" name="password" type="password"/>
 				<button className="btn btn-primary" type="submit">Submit</button>
 			</form>
 		);
@@ -23,8 +23,8 @@ class SampleForm extends Component {
 
 }
 
-SampleForm = reduxForm({
-	form: 'SampleForm'
-})(SampleForm);
+UpdatePasswordForm = reduxForm({
+	form: 'UpdatePasswordForm'
+})(UpdatePasswordForm);
 
-export default connect(state => ({}))(SampleForm);
+export default connect(state => ({}))(UpdatePasswordForm);

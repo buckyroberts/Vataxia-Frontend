@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getPostList} from '../../../actions/posts/post/list';
 import PostListItem from '../../../components/PostListItem';
+import PostForm from './PostForm';
 import './PostList.scss';
 
 
@@ -41,20 +42,11 @@ class PostList extends Component {
 					<div className="tab-content">
 						<div role="tabpanel" className="tab-pane fade active show" id="text" aria-labelledby="text-tab"
 							 aria-expanded="true">
-							<form>
-								<input className="form-control" type="title" id="title" placeholder="Title"/>
-								<textarea className="form-control" id="description" rows="3"/>
-								<button className="btn btn-primary" type="submit">Submit</button>
-							</form>
+							<PostForm/>
 						</div>
 						<div className="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab"
 							 aria-expanded="false">
-							<form>
-								<div>DROPZONE HERE</div>
-								<input className="form-control" type="title" id="title" placeholder="Title"/>
-								<textarea className="form-control" id="description" rows="3"/>
-								<button className="btn btn-primary" type="submit">Submit</button>
-							</form>
+							<PostForm/>
 						</div>
 					</div>
 				</div>

@@ -8,7 +8,22 @@ class About extends Component {
         return (
             <div className="card">
                 <div className="card-block">
-                    About
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>Key</td>
+                            <td>Value</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Value</td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td>Value</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         );

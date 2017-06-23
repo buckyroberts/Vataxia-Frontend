@@ -15,9 +15,6 @@ export const getPostList = (params = {}) => async dispatch => {
 		const {entities} = normalize(response.data, [POST]);
 		setNormalized(dispatch, entities);
 	} catch (error) {
-		dispatch({
-			type: actionTypes[`SET_${MODEL}_ERROR`],
-			payload: error
-		});
+		throw error;
 	}
 };

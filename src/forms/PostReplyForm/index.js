@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import PropTypes from 'prop-types';
-import {createPostReply} from '../../../../actions/replies/post-reply/create';
-import {renderInput} from '../../../../utils/redux-form-fields';
+import {createPostReply} from '../../actions/replies/post-reply/create';
+import {renderInput} from '../../utils/redux-form-fields';
 
 
-class ReplyForm extends Component {
+class PostReplyForm extends Component {
 
 	formSubmit = data => {
 		const {activeUser, dispatch, postId} = this.props;
@@ -29,14 +29,14 @@ class ReplyForm extends Component {
 
 }
 
-ReplyForm.propTypes = {
+PostReplyForm.propTypes = {
 	postId: PropTypes.number.isRequired,
 };
 
-ReplyForm = reduxForm({
-	form: 'ReplyForm'
-})(ReplyForm);
+PostReplyForm = reduxForm({
+	form: 'PostReplyForm'
+})(PostReplyForm);
 
 export default connect(state => ({
 	activeUser: state.activeUser
-}))(ReplyForm);
+}))(PostReplyForm);

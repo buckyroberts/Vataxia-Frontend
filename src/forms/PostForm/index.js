@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {hashHistory} from 'react-router';
 import {Field, reduxForm} from 'redux-form';
-import {createPost} from '../../../../actions/posts/post/create';
-import {renderInput} from '../../../../utils/redux-form-fields';
+import {createPost} from '../../actions/posts/post/create';
+import {renderInput, renderTextArea} from '../../utils/redux-form-fields';
 
 
 class PostForm extends Component {
@@ -12,15 +13,20 @@ class PostForm extends Component {
 		dispatch(createPost({
 			...data,
 			user: activeUser.id
-		}));
+		}))
+			.then(entities => {
+				const post = Object.values(entities['POSTS'])[0];
+				hashHistory.push(`/profile/${post.user}/posts/${post.id}`);
+			})
+			.catch(error => {});
 	};
 
 	render() {
 		const {handleSubmit} = this.props;
 		return (
 			<form onSubmit={handleSubmit(this.formSubmit)}>
-				<Field component={renderInput} label="Title" name="title" type="title"/>
-				<Field component={renderInput} label="Body" name="body" type="body"/>
+				<Field component={renderInput} label="Title" name="title"/>
+				<Field component={renderTextArea} label="Body" name="body"/>
 				<button className="btn btn-primary" type="submit">Submit</button>
 			</form>
 		);

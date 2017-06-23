@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
 import {getUsersFullName} from '../../../utils/user';
-import ReplyForm from './ReplyForm';
+import PostReplyForm from '../../../forms/PostReplyForm';
 import './PostDetail.scss'
 
 
@@ -15,12 +15,12 @@ class PostDetail extends Component {
 		dispatch(getPost(postId));
 	}
 
-	renderReplyForm() {
+	renderPostReplyForm() {
 		const {params: {postId}} = this.props;
 		return (
 			<div className="card reply-form">
 				<div className="card-block">
-					<ReplyForm postId={Number(postId)}/>
+					<PostReplyForm postId={Number(postId)}/>
 				</div>
 			</div>
 		);
@@ -74,7 +74,7 @@ class PostDetail extends Component {
 		return (
 			<div className="PostDetail">
 				{this.renderPostOverview()}
-				{this.renderReplyForm()}
+				{this.renderPostReplyForm()}
 				{this.renderReplySection()}
 			</div>
 		);

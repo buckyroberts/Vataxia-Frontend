@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getPostList} from '../../../actions/posts/post/list';
 import PostListItem from '../../../components/PostListItem';
-import PostForm from './PostForm';
+import PostForm from '../../../forms/PostForm';
 import './PostList.scss';
 
 

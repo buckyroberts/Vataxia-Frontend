@@ -7,3 +7,11 @@ export const renderInput = ({input, label, type, meta: {touched, error}, disable
 		{touched && error && <span className="text-danger">{error}</span>}
 	</div>
 );
+
+export const renderTextArea = ({input, label, type, meta: {touched, error}}) => (
+	<div className="form-group">
+		<label>{label}:</label>
+		<textarea {...input} className="form-control"/>
+		{touched && error && <span className="text-danger">{error}</span>}
+	</div>
+);

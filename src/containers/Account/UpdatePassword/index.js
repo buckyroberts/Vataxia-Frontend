@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import UpdatePasswordForm from './UpdatePasswordForm';
+import UpdatePasswordForm from '../../../forms/UpdatePasswordForm';
 
 
 class UpdatePassword extends Component {

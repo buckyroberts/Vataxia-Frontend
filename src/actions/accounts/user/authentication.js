@@ -2,6 +2,7 @@ import axios from 'axios';
 import {hashHistory} from 'react-router';
 import actionTypes from '../../../config/action-types';
 import settings from '../../../config/settings';
+import {tokenHeader} from '../../../utils/requestHeaders';
 
 
 export const login = data => async dispatch => {
@@ -15,14 +16,20 @@ export const login = data => async dispatch => {
 		});
 		hashHistory.push('/');
 	} catch (error) {
-		dispatch({
-			type: actionTypes[`LOGIN_ERROR`],
-			payload: error
-		});
+		throw error;
 	}
 };
 
 export const logout = () => {
 	localStorage.removeItem('activeUser');
 	return {type: actionTypes[`LOGOUT_SUCCESS`]};
+};
+
+export const updatePassword = data => async () => {
+	try {
+		const response = await axios.post(`${settings.API_ROOT}/update_password`, data, tokenHeader());
+		return response.data;
+	} catch (error) {
+		throw error;
+	}
 };

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import './FormStatus.scss';
 
 
 class FormStatus extends Component {
@@ -20,7 +21,7 @@ class FormStatus extends Component {
 
 	render() {
 		return (
-			<div className="mb-2">
+			<div className="FormStatus">
 				<span className="text-danger">{this.renderErrors()}</span>
 				<span className="text-success">{this.renderSuccess()}</span>
 			</div>

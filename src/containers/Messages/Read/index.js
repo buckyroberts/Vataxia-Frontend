@@ -1,59 +1,77 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
+import {getPrivateMessage} from '../../../actions/private-messages/private-message/get';
+import {getUsersFullName} from '../../../utils/user';
 import './Read.scss';
 
 
 class Read extends Component {
 
-	renderButtons() {
-		return (
-			<div className="d-flex justify-content-end">
-				<button type="button" className="btn btn-danger">Delete</button>
-			</div>
-		);
-	}
+    componentDidMount() {
+        const {dispatch, params: {privateMessageId}} = this.props;
+        dispatch(getPrivateMessage(privateMessageId));
+    }
 
-	renderSender() {
-		return (
-			<div className="media">
-				<a href="#">
-					<img className="d-flex" src="http://i.imgur.com/uuykYlB.png"/>
-				</a>
-				<div className="media-body">
-					<a className="user" href="#">Emily May</a>
-					<span className="date"> · 6/17/2017</span>
-					<div className="details">
-						to <a className="receiver" href="#">Bucky Roberts</a>
-					</div>
-				</div>
-			</div>
-		);
-	}
+    renderButtons() {
+        return (
+            <div className="d-flex justify-content-end">
+                <button type="button" className="btn btn-danger">Delete</button>
+            </div>
+        );
+    }
 
-	render() {
-		return (
-			<div className="Read">
-				<div className="toolbar">
-					{this.renderButtons()}
-				</div>
-				<div className="card">
-					<div className="card-block">
-						<div className="header">
-							{this.renderSender()}
-						</div>
-						<div className="subject">
-							Subject of the Message
-						</div>
-						<div className="content">
-							Bacon ipsum dolor amet ham hock venison shoulder landjaeger turkey. Capicola tongue bacon
-							shoulder, cow meatball ham hock brisket frankfurter picanha pancetta.
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
+    renderHeader() {
+        const {privateMessage, users} = this.props;
+        return (
+            <div className="media">
+                <Link to={`/profile/${privateMessage.sender}/posts`}>
+                    <img className="d-flex" src="http://i.imgur.com/uuykYlB.png"/>
+                </Link>
+                <div className="media-body">
+                    <Link className="user" to={`/profile/${privateMessage.sender}/posts`}>
+                        {getUsersFullName(users, privateMessage.sender)}
+                    </Link>
+                    <span className="date"> · {privateMessage.created_date}</span>
+                    <div className="details">
+                        to{' '}
+                        <Link className="receiver" to={`/profile/${privateMessage.receiver}/posts`}>
+                            {getUsersFullName(users, privateMessage.receiver)}
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    render() {
+        const {privateMessage} = this.props;
+        if(!privateMessage) return null;
+        return (
+            <div className="Read">
+                <div className="toolbar">
+                    {this.renderButtons()}
+                </div>
+                <div className="card">
+                    <div className="card-block">
+                        <div className="header">
+                            {this.renderHeader()}
+                        </div>
+                        <div className="subject">
+                            {privateMessage.subject}
+                        </div>
+                        <div className="content">
+                            {privateMessage.body}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
 }
 
-export default connect(state => ({}))(Read);
+export default connect((state, props) => ({
+    privateMessage: state.privateMessages.data[props.params.privateMessageId],
+    users: state.users.data,
+}))(Read);

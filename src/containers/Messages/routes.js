@@ -13,7 +13,7 @@ export default (
 	<Route path="/messages" component={Authenticated(Messages)}>
 		<Route path="compose/:userId" component={Compose}/>
 		<Route path="inbox" component={Inbox}/>
-		<Route path="read/:messageId" component={Read}/>
+		<Route path="read/:privateMessageId" component={Read}/>
 		<Route path="sent" component={Sent}/>
 		<Route path="trash" component={Trash}/>
 	</Route>

@@ -6,7 +6,6 @@ import Compose from "./Compose";
 import Inbox from "./Inbox";
 import Read from "./Read";
 import Sent from "./Sent";
-import Trash from "./Trash";
 
 
 export default (
@@ -15,6 +14,5 @@ export default (
 		<Route path="inbox" component={Inbox}/>
 		<Route path="read/:privateMessageId" component={Read}/>
 		<Route path="sent" component={Sent}/>
-		<Route path="trash" component={Trash}/>
 	</Route>
 );

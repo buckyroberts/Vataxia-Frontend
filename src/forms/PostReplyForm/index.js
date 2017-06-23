@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {Field, reduxForm, reset} from 'redux-form';
 import PropTypes from 'prop-types';
 import {createPostReply} from '../../actions/replies/post-reply/create';
+import FormStatus from '../../components/FormStatus';
 import {renderTextArea} from '../../utils/redux-form-fields';
 
 
 class PostReplyForm extends Component {
 
 	state = {
-		error: null
+		error: null,
+		success: null
 	};
 
 	formSubmit = data => {
@@ -28,18 +30,11 @@ class PostReplyForm extends Component {
 			});
 	};
 
-	renderErrors = () => {
-		const {error} = this.state;
-		if(!error) return;
-		return Object.keys(error)
-			.map(key => <div key={key}>{`${key} - ${error[key]}`}</div>);
-	};
-
 	render() {
 		const {handleSubmit} = this.props;
 		return (
 			<form onSubmit={handleSubmit(this.formSubmit)}>
-				<div className="mb-2 text-danger">{this.renderErrors()}</div>
+				<FormStatus formState={this.state}/>
 				<Field component={renderTextArea} label="Body" name="body"/>
 				<button className="btn btn-primary" type="submit">Submit</button>
 			</form>

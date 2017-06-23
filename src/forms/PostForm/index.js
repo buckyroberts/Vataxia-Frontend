@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import {hashHistory} from 'react-router';
 import {Field, reduxForm} from 'redux-form';
 import {createPost} from '../../actions/posts/post/create';
+import FormStatus from '../../components/FormStatus';
 import {renderInput, renderTextArea} from '../../utils/redux-form-fields';
 
 
 class PostForm extends Component {
 
 	state = {
-		error: null
+		error: null,
+		success: null
 	};
 
 	formSubmit = data => {
@@ -27,18 +29,11 @@ class PostForm extends Component {
 			});
 	};
 
-	renderErrors = () => {
-		const {error} = this.state;
-		if(!error) return;
-		return Object.keys(error)
-			.map(key => <div key={key}>{`${key} - ${error[key]}`}</div>);
-	};
-
 	render() {
 		const {handleSubmit} = this.props;
 		return (
 			<form onSubmit={handleSubmit(this.formSubmit)}>
-				<div className="mb-2 text-danger">{this.renderErrors()}</div>
+				<FormStatus formState={this.state}/>
 				<Field component={renderInput} label="Title" name="title"/>
 				<Field component={renderTextArea} label="Body" name="body"/>
 				<button className="btn btn-primary" type="submit">Submit</button>

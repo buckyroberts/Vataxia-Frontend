@@ -31,18 +31,14 @@ class PostForm extends Component {
 		const {error} = this.state;
 		if(!error) return;
 		return Object.keys(error)
-			.map(key => (
-				<div className="text-danger" key={key}>
-					{`${key} - ${error[key]}`}
-				</div>
-			));
+			.map(key => <div key={key}>{`${key} - ${error[key]}`}</div>);
 	};
 
 	render() {
 		const {handleSubmit} = this.props;
 		return (
 			<form onSubmit={handleSubmit(this.formSubmit)}>
-				<div className="mb-2">{this.renderErrors()}</div>
+				<div className="mb-2 text-danger">{this.renderErrors()}</div>
 				<Field component={renderInput} label="Title" name="title"/>
 				<Field component={renderTextArea} label="Body" name="body"/>
 				<button className="btn btn-primary" type="submit">Submit</button>

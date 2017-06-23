@@ -16,10 +16,6 @@ export const createPost = data => async dispatch => {
 		setNormalized(dispatch, entities);
 		return entities;
 	} catch (error) {
-		dispatch({
-			type: actionTypes[`SET_${MODEL}_ERROR`],
-			payload: error
-		});
 		throw error;
 	}
 };

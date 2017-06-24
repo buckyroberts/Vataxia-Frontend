@@ -14,7 +14,7 @@ class PostListItem extends Component {
     getPostImage() {
         const {post} = this.props;
         if (post.image) return `http://127.0.0.1:8000${post.image}`;
-        return 'http://i.imgur.com/y3YLhkW.png';
+        return 'http://i.imgur.com/1HHJKXC.png';
     }
 
     getVoteScoreStyling() {

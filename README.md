@@ -31,4 +31,5 @@ To view the application, go to: [http://localhost:3000/](http://localhost:3000/)
 
 ## Previews
 
-![](http://i.imgur.com/rVPvaMR.png)
+**Home**
+![](http://i.imgur.com/eCafB75.png)

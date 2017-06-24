@@ -12,14 +12,6 @@ class Inbox extends Component {
         dispatch(getPrivateMessageList());
     }
 
-    renderButtons() {
-        return (
-            <div className="d-flex justify-content-end">
-                <Link className="btn btn-danger" to="/messages/compose/1">Compose</Link>
-            </div>
-        );
-    }
-
     renderPrivateMessages() {
         const {activeUser, privateMessages, users} = this.props;
         return Object.values(privateMessages)
@@ -36,13 +28,8 @@ class Inbox extends Component {
 
     render() {
         return (
-            <div>
-                <div className="toolbar">
-                    {this.renderButtons()}
-                </div>
-                <div className="message-rows">
-                    {this.renderPrivateMessages()}
-                </div>
+            <div className="message-rows">
+                {this.renderPrivateMessages()}
             </div>
         );
     }

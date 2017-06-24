@@ -1,6 +1,10 @@
 .Profile {
 	margin-top: 54px + 20px;
 
+	.action-buttons {
+		margin-bottom: 10px;
+	}
+
 	.list-group-item {
 		border-radius: 0;
 		padding: 4px 12px;
@@ -19,7 +23,7 @@
 	.user-name {
 		font-size: 20px;
 		font-weight: 300;
-		margin: 4px 0 12px;
+		margin: 4px 0 10px;
 	}
 
 }

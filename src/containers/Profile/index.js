@@ -14,8 +14,7 @@ class Profile extends Component {
     }
 
     renderLeftLink(url, title) {
-        return <Link activeClassName="active" className="list-group-item list-group-item-action"
-                     to={url}>{title}</Link>;
+        return <Link activeClassName="active" className="list-group-item list-group-item-action" to={url}>{title}</Link>;
     }
 
     render() {
@@ -30,6 +29,11 @@ class Profile extends Component {
                             <div className="col-2">
                                 <img src="http://i.imgur.com/uuykYlB.png" className="img-fluid"/>
                                 <div className="user-name">{`${user.first_name} ${user.last_name}`}</div>
+                                <div className="action-buttons">
+                                    <Link className="btn btn-success btn-sm" to={`/messages/compose/${user.id}`}>
+                                        Message
+                                    </Link>
+                                </div>
                                 <div className="list-group">
                                     {this.renderLeftLink(`/profile/${user.id}/posts`, 'Home')}
                                     {this.renderLeftLink(`/profile/${user.id}/about`, 'About')}

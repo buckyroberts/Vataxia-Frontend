@@ -6,6 +6,11 @@ import {renderInput} from '../utils/redux-form-fields';
 
 class SampleForm extends Component {
 
+    state = {
+        error: null,
+        success: null
+    };
+
     formSubmit = data => {
         const {dispatch} = this.props;
         console.log(data)

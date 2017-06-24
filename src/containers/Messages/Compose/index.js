@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {getUser} from '../../../actions/accounts/user/get';
+import PrivateMessageForm from '../../../forms/PrivateMessageForm';
 import {getUsersFullName} from '../../../utils/user';
 import './Compose.scss';
 
@@ -45,15 +46,7 @@ class Compose extends Component {
                         <div className="header">
                             {this.renderHeader()}
                         </div>
-                        <form>
-                            <div className="form-group">
-                                <input type="subject" className="form-control" id="subject" placeholder="Subject"/>
-                            </div>
-                            <div className="form-group">
-                                <textarea className="form-control" id="exampleTextarea" rows="3"/>
-                            </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
-                        </form>
+                        <PrivateMessageForm receiver={receiver}/>
                     </div>
                 </div>
             </div>

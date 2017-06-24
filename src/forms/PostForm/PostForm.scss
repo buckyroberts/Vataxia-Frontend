@@ -1,0 +1,54 @@
+.PostForm {
+
+	.drop-zone {
+		background-color: #fcfcfc;
+		border: 2px dashed #eee;
+		border-radius: 2px;
+		margin-bottom: 12px;
+		padding: 14px;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		.content {
+			line-height: 19px;
+			text-align: center;
+
+			i {
+				color: #ddd;
+				display: block;
+				font-size: 32px;
+				margin-bottom: 2px;
+			}
+
+			.bottom-text {
+				color: #ccc;
+				font-size: 12px;
+				font-weight: 500;
+			}
+
+			.top-text {
+				color: #bbb;
+				font-size: 16px;
+				font-weight: 500;
+			}
+
+		}
+
+	}
+
+	.image-preview {
+		margin-bottom: 12px;
+
+		.image-info {
+			margin-bottom: 4px;
+		}
+
+		img {
+			max-width: 200px;
+		}
+
+	}
+
+}

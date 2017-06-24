@@ -11,6 +11,12 @@ import './PostListItem.scss';
 
 class PostListItem extends Component {
 
+    getPostImage() {
+        const {post} = this.props;
+        if (post.image) return `http://127.0.0.1:8000${post.image}`;
+        return 'http://i.imgur.com/y3YLhkW.png';
+    }
+
     getVoteScoreStyling() {
         if(this.usersVoteValue() === -1) return 'down-voted';
         if(this.usersVoteValue() === 1) return 'up-voted';
@@ -93,8 +99,7 @@ class PostListItem extends Component {
         return (
             <div className="thumbnail-container">
                 <Link to={`/profile/${post.user}/posts/${post.id}`}>
-                    <img className="thumbnail"
-                         src="//b.thumbs.redditmedia.com/0bLGwYM2y0cUimoA7D7lNO3KYMBfZQGLgeYQrdqCOmk.jpg"/>
+                    <img className="thumbnail" src={this.getPostImage()}/>
                 </Link>
             </div>
         );

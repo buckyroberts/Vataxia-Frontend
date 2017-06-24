@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Dropzone from 'react-dropzone'
 import {hashHistory} from 'react-router';
 import {Field, reduxForm} from 'redux-form';
 import {createPost} from '../../actions/posts/post/create';
@@ -11,6 +12,7 @@ class PostForm extends Component {
 
     state = {
         error: null,
+        files: [],
         success: null
     };
 
@@ -18,6 +20,7 @@ class PostForm extends Component {
         const {activeUser, dispatch, posts} = this.props;
         dispatch(createPost({
             ...data,
+            image: this.state.files[0],
             user: activeUser.id
         }))
             .then(entities => {
@@ -29,10 +32,21 @@ class PostForm extends Component {
             });
     };
 
+    onDrop = files => {
+        console.log(files);
+        this.setState({files});
+    };
+
     render() {
         const {handleSubmit} = this.props;
         return (
             <form onSubmit={handleSubmit(this.formSubmit)}>
+                <Dropzone onDrop={this.onDrop} multiple={true}>
+                    Click
+                </Dropzone>
+                <ul>
+                    {this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)}
+                </ul>
                 <FormStatus formState={this.state}/>
                 <Field component={renderInput} label="Title" name="title"/>
                 <Field component={renderTextArea} label="Body" name="body"/>

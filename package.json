@@ -25,6 +25,7 @@
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-dropzone": "^3.13.3",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
     "redux": "^3.5.2",

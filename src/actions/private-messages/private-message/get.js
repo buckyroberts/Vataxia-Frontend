@@ -14,7 +14,7 @@ export const getPrivateMessage = id => async dispatch => {
         const response = await axios.get(`${settings.API_ROOT}/private_messages/${id}`, tokenHeader());
         const {entities} = normalize(response.data, PRIVATE_MESSAGE);
         setNormalized(dispatch, entities);
-    } catch (error) {
+    } catch(error) {
         throw error;
     }
 };

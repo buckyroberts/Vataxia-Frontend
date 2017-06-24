@@ -5,5 +5,5 @@ import modelReducer from '../../higher-order-reducers/model';
 const MODEL = 'USERS';
 
 export default combineReducers({
-	data: modelReducer(MODEL)
+    data: modelReducer(MODEL)
 });

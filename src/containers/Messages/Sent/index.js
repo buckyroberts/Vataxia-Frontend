@@ -25,7 +25,8 @@ class Sent extends Component {
         return Object.values(privateMessages)
             .filter(privateMessage => privateMessage.sender === activeUser.id)
             .map(privateMessage =>
-                <Link className="d-flex justify-content-start message-row" key={privateMessage.id} to={`/messages/read/${privateMessage.id}`}>
+                <Link className="d-flex justify-content-start message-row" key={privateMessage.id}
+                      to={`/messages/read/${privateMessage.id}`}>
                     <div className="user">{getUsersFullName(users, privateMessage.receiver)}</div>
                     <div className="subject">{privateMessage.subject}</div>
                     <div className="date ml-auto">{privateMessage.created_date}</div>

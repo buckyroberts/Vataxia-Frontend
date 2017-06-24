@@ -3,23 +3,23 @@ import {connect} from 'react-redux';
 import {hashHistory} from 'react-router';
 
 
-export default function (InnerComponent) {
+export default function(InnerComponent) {
 
-	class Unauthenticated extends Component {
+    class Unauthenticated extends Component {
 
-		componentWillMount() {
-			const {activeUser} = this.props;
-			if (activeUser) hashHistory.push('/');
-		}
+        componentWillMount() {
+            const {activeUser} = this.props;
+            if(activeUser) hashHistory.push('/');
+        }
 
-		render() {
-			return <InnerComponent {...this.props} />;
-		}
+        render() {
+            return <InnerComponent {...this.props} />;
+        }
 
-	}
+    }
 
-	return connect(state => ({
-		activeUser: state.activeUser
-	}))(Unauthenticated);
+    return connect(state => ({
+        activeUser: state.activeUser
+    }))(Unauthenticated);
 
 }

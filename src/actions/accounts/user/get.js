@@ -8,13 +8,16 @@ import {tokenHeader} from '../../../utils/requestHeaders';
 
 
 export const getUser = id => async dispatch => {
-	const MODEL = 'USERS';
-	dispatch({type: actionTypes[`SET_${MODEL}_PENDING`]});
-	try {
-		const response = await axios.get(`${settings.API_ROOT}/users/${id}`, tokenHeader());
-		const {entities} = normalize(response.data, USER);
-		setNormalized(dispatch, entities);
-	} catch (error) {
-		throw error;
-	}
+    const MODEL = 'USERS';
+    dispatch({type: actionTypes[`SET_${MODEL}_PENDING`]});
+    try {
+        const response = await axios.get(`${settings.API_ROOT}/users/${id}`, tokenHeader());
+        const {entities} = normalize(response.data, USER);
+        setNormalized(dispatch, entities);
+    } catch(error) {
+        dispatch({
+            type: actionTypes[`SET_${MODEL}_ERROR`],
+            payload: error
+        });
+    }
 };

@@ -9,10 +9,10 @@ import Sent from "./Sent";
 
 
 export default (
-	<Route path="/messages" component={Authenticated(Messages)}>
-		<Route path="compose/:userId" component={Compose}/>
-		<Route path="inbox" component={Inbox}/>
-		<Route path="read/:privateMessageId" component={Read}/>
-		<Route path="sent" component={Sent}/>
-	</Route>
+    <Route path="/messages" component={Authenticated(Messages)}>
+        <Route path="compose/:userId" component={Compose}/>
+        <Route path="inbox" component={Inbox}/>
+        <Route path="read/:privateMessageId" component={Read}/>
+        <Route path="sent" component={Sent}/>
+    </Route>
 );

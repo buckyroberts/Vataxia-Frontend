@@ -8,14 +8,14 @@ import {tokenHeader} from '../../../utils/requestHeaders';
 
 
 export const createPostReply = data => async dispatch => {
-	const MODEL = 'POST_REPLIES';
-	dispatch({type: actionTypes[`SET_${MODEL}_PENDING`]});
-	try {
-		const response = await axios.post(`${settings.API_ROOT}/post_replies`, data, tokenHeader());
-		const {entities} = normalize(response.data, POST_REPLY);
-		setNormalized(dispatch, entities);
-		return entities;
-	} catch (error) {
-		throw error;
-	}
+    const MODEL = 'POST_REPLIES';
+    dispatch({type: actionTypes[`SET_${MODEL}_PENDING`]});
+    try {
+        const response = await axios.post(`${settings.API_ROOT}/post_replies`, data, tokenHeader());
+        const {entities} = normalize(response.data, POST_REPLY);
+        setNormalized(dispatch, entities);
+        return entities;
+    } catch(error) {
+        throw error;
+    }
 };

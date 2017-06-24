@@ -6,21 +6,21 @@ import './Account.scss'
 
 class Account extends Component {
 
-	render() {
-		return (
-			<div>
-				<Navigation />
-				<div className="container-fluid Account">
-					<div className="row">
-						<LeftMenu/>
-						<main className="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-							{this.props.children}
-						</main>
-					</div>
-				</div>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div>
+                <Navigation />
+                <div className="container-fluid Account">
+                    <div className="row">
+                        <LeftMenu/>
+                        <main className="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+                            {this.props.children}
+                        </main>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
 }
 

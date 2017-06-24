@@ -7,8 +7,8 @@ import UpdatePassword from "./UpdatePassword";
 
 
 export default (
-	<Route path="/account" component={Authenticated(Account)}>
-		<Route path="basic-information" component={BasicInformation} />
-		<Route path="update-password" component={UpdatePassword}/>
-	</Route>
+    <Route path="/account" component={Authenticated(Account)}>
+        <Route path="basic-information" component={BasicInformation}/>
+        <Route path="update-password" component={UpdatePassword}/>
+    </Route>
 );

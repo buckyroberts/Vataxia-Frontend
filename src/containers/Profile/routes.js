@@ -11,12 +11,12 @@ import PostList from "./PostList";
 
 
 export default (
-	<Route path="/profile/:userId" component={Authenticated(Profile)}>
-		<Route path="about" component={About}/>
-		<Route path="followers" component={Followers}/>
-		<Route path="following" component={Following}/>
-		<Route path="photos" component={Photos}/>
-		<Route path="posts/:postId" component={PostDetail}/>
-		<Route path="posts" component={PostList}/>
-	</Route>
+    <Route path="/profile/:userId" component={Authenticated(Profile)}>
+        <Route path="about" component={About}/>
+        <Route path="followers" component={Followers}/>
+        <Route path="following" component={Following}/>
+        <Route path="photos" component={Photos}/>
+        <Route path="posts/:postId" component={PostDetail}/>
+        <Route path="posts" component={PostList}/>
+    </Route>
 );

@@ -9,11 +9,11 @@ import ProfileRoutes from "../containers/Profile/routes";
 
 
 export default (
-	<Route path="/">
-		<IndexRoute component={Authenticated(Home)}/>
-		{AccountRoutes}
-		{AuthenticationRoutes}
-		{MessagesRoutes}
-		{ProfileRoutes}
-	</Route>
+    <Route path="/">
+        <IndexRoute component={Authenticated(Home)}/>
+        {AccountRoutes}
+        {AuthenticationRoutes}
+        {MessagesRoutes}
+        {ProfileRoutes}
+    </Route>
 );

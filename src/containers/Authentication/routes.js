@@ -7,8 +7,8 @@ import Register from "./Register";
 
 
 export default (
-	<Route path="/" component={Unauthenticated(Authentication)}>
-		<Route path="login" component={Login}/>
-		<Route path="register" component={Register}/>
-	</Route>
+    <Route path="/" component={Unauthenticated(Authentication)}>
+        <Route path="login" component={Login}/>
+        <Route path="register" component={Register}/>
+    </Route>
 );

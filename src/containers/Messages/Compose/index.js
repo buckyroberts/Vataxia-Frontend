@@ -12,7 +12,7 @@ class Compose extends Component {
         const {dispatch, params: {userId}} = this.props;
         dispatch(getUser(userId));
     }
-    
+
     renderHeader() {
         const {activeUser, receiver, users} = this.props;
         return (
@@ -37,7 +37,7 @@ class Compose extends Component {
 
     render() {
         const {receiver} = this.props;
-        if (!receiver) return null;
+        if(!receiver) return null;
         return (
             <div className="Compose">
                 <div className="card">

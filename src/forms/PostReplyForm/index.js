@@ -9,48 +9,48 @@ import {renderTextArea} from '../../utils/redux-form-fields';
 
 class PostReplyForm extends Component {
 
-	state = {
-		error: null,
-		success: null
-	};
+    state = {
+        error: null,
+        success: null
+    };
 
-	formSubmit = data => {
-		const {activeUser, dispatch, postId} = this.props;
-		dispatch(createPostReply({
-			...data,
-			post: postId,
-			user: activeUser.id
-		}))
-			.then(() => {
-				dispatch(reset('PostReplyForm'));
-				this.setState({error: null});
-			})
-			.catch(error => {
-				this.setState({error: error.response.data});
-			});
-	};
+    formSubmit = data => {
+        const {activeUser, dispatch, postId} = this.props;
+        dispatch(createPostReply({
+            ...data,
+            post: postId,
+            user: activeUser.id
+        }))
+            .then(() => {
+                dispatch(reset('PostReplyForm'));
+                this.setState({error: null});
+            })
+            .catch(error => {
+                this.setState({error: error.response.data});
+            });
+    };
 
-	render() {
-		const {handleSubmit} = this.props;
-		return (
-			<form onSubmit={handleSubmit(this.formSubmit)}>
-				<FormStatus formState={this.state}/>
-				<Field component={renderTextArea} label="Body" name="body"/>
-				<button className="btn btn-primary" type="submit">Submit</button>
-			</form>
-		);
-	}
+    render() {
+        const {handleSubmit} = this.props;
+        return (
+            <form onSubmit={handleSubmit(this.formSubmit)}>
+                <FormStatus formState={this.state}/>
+                <Field component={renderTextArea} label="Body" name="body"/>
+                <button className="btn btn-primary" type="submit">Submit</button>
+            </form>
+        );
+    }
 
 }
 
 PostReplyForm.propTypes = {
-	postId: PropTypes.number.isRequired,
+    postId: PropTypes.number.isRequired,
 };
 
 PostReplyForm = reduxForm({
-	form: 'PostReplyForm'
+    form: 'PostReplyForm'
 })(PostReplyForm);
 
 export default connect(state => ({
-	activeUser: state.activeUser
+    activeUser: state.activeUser
 }))(PostReplyForm);

@@ -31,21 +31,13 @@ class PostList extends Component {
                 <div role="tabpanel">
                     <ul className="nav nav-tabs" role="tablist">
                         <li className="nav-item">
-                            <a className="nav-link active" id="text-tab" data-toggle="tab" href="#text" role="tab"
-                               aria-controls="text" aria-expanded="true">Text</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" id="photo-tab" data-toggle="tab" href="#photo" role="tab"
-                               aria-controls="photo" aria-expanded="false">Photo</a>
+                            <a className="nav-link active" id="post-tab" data-toggle="tab" href="#post" role="tab"
+                               aria-controls="post" aria-expanded="true">Post</a>
                         </li>
                     </ul>
                     <div className="tab-content">
-                        <div role="tabpanel" className="tab-pane fade active show" id="text" aria-labelledby="text-tab"
+                        <div role="tabpanel" className="tab-pane fade active show" id="post" aria-labelledby="post-tab"
                              aria-expanded="true">
-                            <PostForm/>
-                        </div>
-                        <div className="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="photo-tab"
-                             aria-expanded="false">
                             <PostForm/>
                         </div>
                     </div>

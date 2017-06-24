@@ -4,6 +4,7 @@
 		background-color: #fcfcfc;
 		border: 2px dashed #eee;
 		border-radius: 2px;
+		margin-bottom: 12px;
 		padding: 14px;
 
 		&:hover {
@@ -33,6 +34,19 @@
 				font-weight: 500;
 			}
 
+		}
+
+	}
+
+	.image-preview {
+		margin-bottom: 12px;
+
+		.image-info {
+			margin-bottom: 4px;
+		}
+
+		img {
+			max-width: 200px;
 		}
 
 	}

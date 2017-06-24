@@ -5,7 +5,7 @@
 Vataxia is an open source social network written in React and Redux. This project is the frontend responsive web 
 application only. The backend REST API is developed in Django and can be found here: 
 
-[Vataxia API](https://github.com/buckyroberts/Vataxia)
+[Vataxia Backend (REST API)](https://github.com/buckyroberts/Vataxia)
 
 ## Features
 

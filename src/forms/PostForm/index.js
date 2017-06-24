@@ -33,7 +33,6 @@ class PostForm extends Component {
     };
 
     onDrop = files => {
-        console.log(files);
         this.setState({files});
     };
 
@@ -41,15 +40,15 @@ class PostForm extends Component {
         const {handleSubmit} = this.props;
         return (
             <form onSubmit={handleSubmit(this.formSubmit)}>
-                <Dropzone onDrop={this.onDrop} multiple={true}>
+                <FormStatus formState={this.state}/>
+                <Field component={renderInput} label="Title" name="title"/>
+                <Field component={renderTextArea} label="Body" name="body"/>
+                <Dropzone onDrop={this.onDrop} multiple={false}>
                     Click
                 </Dropzone>
                 <ul>
                     {this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)}
                 </ul>
-                <FormStatus formState={this.state}/>
-                <Field component={renderInput} label="Title" name="title"/>
-                <Field component={renderTextArea} label="Body" name="body"/>
                 <button className="btn btn-primary" type="submit">Submit</button>
             </form>
         );

@@ -13,8 +13,9 @@ class PostList extends Component {
         dispatch(getPostList());
     }
 
-    renderPosts() {
+    renderPostList() {
         const {params: {userId}, posts} = this.props;
+        if (Object.values(posts).length === 0) return null;
         return Object.values(posts)
             .filter(post => post.user === Number(userId))
             .map((post, i) =>
@@ -23,6 +24,18 @@ class PostList extends Component {
                     post={post}
                 />
             );
+    }
+    
+    renderPostSection() {
+        const {posts} = this.props;
+        if (Object.values(posts).length === 0) return null;
+        return (
+            <div className="card">
+                <div className="card-block">
+                    {this.renderPostList()}
+                </div>
+            </div>
+        );
     }
 
     render() {
@@ -42,11 +55,7 @@ class PostList extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="card">
-                    <div className="card-block">
-                        {this.renderPosts()}
-                    </div>
-                </div>
+                {this.renderPostSection()}
             </div>
         );
     }

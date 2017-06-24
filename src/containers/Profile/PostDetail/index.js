@@ -46,6 +46,8 @@ class PostDetail extends Component {
     }
 
     renderReplySection() {
+        const {postReplies} = this.props;
+        if (Object.values(postReplies).length === 0) return null;
         return (
             <div className="card reply-section">
                 <div className="card-block">

@@ -46,3 +46,6 @@ To view the application, go to: [http://localhost:3000/](http://localhost:3000/)
 
 **Photos**
 ![](http://i.imgur.com/TNb1Abn.png)
+
+**Private messaging**
+![](http://i.imgur.com/u26TC1I.png)

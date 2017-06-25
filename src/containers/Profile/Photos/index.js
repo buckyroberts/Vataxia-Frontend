@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {getPostList} from '../../../actions/posts/post/list';
 import './Photos.scss';
 
 
 class Photos extends Component {
+
+    componentDidMount() {
+        const {dispatch} = this.props;
+        dispatch(getPostList());
+    }
 
     renderContent() {
         return (
@@ -50,4 +56,6 @@ class Photos extends Component {
 
 }
 
-export default connect(state => ({}))(Photos);
+export default connect(state => ({
+    posts: state.posts.data
+}))(Photos);

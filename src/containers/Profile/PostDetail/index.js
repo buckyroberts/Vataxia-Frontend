@@ -26,10 +26,9 @@ class PostDetail extends Component {
         );
     }
 
-    renderReplyList() {
-        const {post, postReplies, users} = this.props;
-        return Object.values(postReplies)
-            .filter(postReply => postReply.post === post.id)
+    renderPostReplyList(postReplyList) {
+        const {users} = this.props;
+        return postReplyList
             .map(postReply =>
                 <div className="media reply" key={postReply.id}>
                     <a href="">
@@ -46,12 +45,14 @@ class PostDetail extends Component {
     }
 
     renderReplySection() {
-        const {postReplies} = this.props;
-        if (Object.values(postReplies).length === 0) return null;
+        const {post, postReplies} = this.props;
+        const postReplyList = Object.values(postReplies)
+            .filter(postReply => postReply.post === post.id);
+        if (postReplyList.length === 0) return null;
         return (
             <div className="card reply-section">
                 <div className="card-block">
-                    {this.renderReplyList()}
+                    {this.renderPostReplyList(postReplyList)}
                 </div>
             </div>
         );
@@ -73,7 +74,7 @@ class PostDetail extends Component {
 
     render() {
         const {post} = this.props;
-        if(!post) return null;
+        if (!post) return null;
         return (
             <div className="PostDetail">
                 {this.renderPostOverview()}

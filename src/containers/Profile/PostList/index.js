@@ -13,11 +13,8 @@ class PostList extends Component {
         dispatch(getPostList());
     }
 
-    renderPostList() {
-        const {params: {userId}, posts} = this.props;
-        if (Object.values(posts).length === 0) return null;
-        return Object.values(posts)
-            .filter(post => post.user === Number(userId))
+    renderPostList(postList) {
+        return postList
             .map((post, i) =>
                 <PostListItem
                     key={post.id}
@@ -25,14 +22,16 @@ class PostList extends Component {
                 />
             );
     }
-    
+
     renderPostSection() {
-        const {posts} = this.props;
-        if (Object.values(posts).length === 0) return null;
+        const {params: {userId}, posts} = this.props;
+        const postList = Object.values(posts)
+            .filter(post => post.user === Number(userId));
+        if (postList.length === 0) return null;
         return (
             <div className="card">
                 <div className="card-block">
-                    {this.renderPostList()}
+                    {this.renderPostList(postList)}
                 </div>
             </div>
         );

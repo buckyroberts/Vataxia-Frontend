@@ -5,6 +5,20 @@
 		margin-bottom: 10px;
 	}
 
+	.edit-profile-image {
+		color: #999;
+		font-size: 11px;
+		padding: 2px;
+		text-align: center;
+
+		&:hover {
+			background: rgba(0, 0 , 0, 0.35);
+			color: white;
+			cursor: pointer;
+		}
+
+	}
+
 	.list-group-item {
 		border-radius: 0;
 		padding: 4px 12px;

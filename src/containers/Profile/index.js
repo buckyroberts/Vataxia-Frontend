@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Dropzone from 'react-dropzone'
 import {Link} from 'react-router';
 import {getUser} from '../../actions/accounts/user/get';
+import {editProfile} from '../../actions/accounts/profile/edit';
 import Navigation from '../../components/Navigation';
 import './Profile.scss';
 
@@ -19,6 +21,24 @@ class Profile extends Component {
         return 'http://i.imgur.com/uuykYlB.png';
     }
 
+    onDrop = files => {
+        const {activeUser, dispatch} = this.props;
+        dispatch(editProfile({
+            ...activeUser.profile,
+            image: files[0],
+        }))
+    };
+
+    renderEditProfileImage() {
+        const {activeUser, user} = this.props;
+        if (activeUser.id !== user.id) return null;
+        return (
+            <Dropzone className="edit-profile-image" onDrop={this.onDrop} multiple={false}>
+                Edit profile image
+            </Dropzone>
+        );
+    }
+
     renderLeftLink(url, title) {
         return <Link activeClassName="active" className="list-group-item list-group-item-action" to={url}>{title}</Link>;
     }
@@ -34,6 +54,7 @@ class Profile extends Component {
                         <div className="row">
                             <div className="col-2">
                                 <img src={this.getProfileImage()} className="img-fluid"/>
+                                {this.renderEditProfileImage()}
                                 <div className="user-name">{`${user.first_name} ${user.last_name}`}</div>
                                 <div className="action-buttons">
                                     <Link className="btn btn-success btn-sm" to={`/messages/compose/${user.id}`}>
@@ -59,5 +80,6 @@ class Profile extends Component {
 }
 
 export default connect((state, props) => ({
+    activeUser: state.activeUser,
     user: state.users.data[props.params.userId],
 }))(Profile);

@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --verbose",
-    "start": "webpack-dev-server --config webpack.config.dev.js"
+    "start": "webpack-dev-server --config webpack.config.dev.js",
+    "test": "jest"
   },
   "license": "ISC",
   "dependencies": {
@@ -43,6 +44,7 @@
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.2",
     "babel-preset-stage-0": "^6.24.1",
+    "jest": "^20.0.4",
     "react-transform-hmr": "^1.0.4"
   }
 }

@@ -5,6 +5,7 @@ import {Link} from 'react-router';
 import {getUser} from '../../actions/accounts/user/get';
 import {editProfile} from '../../actions/accounts/profile/edit';
 import Navigation from '../../components/Navigation';
+import settings from '../../config/settings';
 import './Profile.scss';
 
 
@@ -17,7 +18,7 @@ class Profile extends Component {
 
     getProfileImage() {
         const {user: {profile}} = this.props;
-        if (profile.image) return `http://127.0.0.1:8000${profile.image}`;
+        if (profile.image) return `${settings.API_ROOT}${profile.image}`;
         return 'http://i.imgur.com/uuykYlB.png';
     }
 

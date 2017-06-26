@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {createPostVote} from '../../actions/votes/post-vote/create';
 import {deletePostVote} from '../../actions/votes/post-vote/delete';
 import {editPostVote} from '../../actions/votes/post-vote/edit';
+import settings from '../../config/settings';
 import {getUsersFullName} from '../../utils/user';
 import './PostListItem.scss';
 
@@ -13,7 +14,7 @@ class PostListItem extends Component {
 
     getPostImage() {
         const {post} = this.props;
-        if (post.image) return `http://127.0.0.1:8000${post.image}`;
+        if (post.image) return `${settings.API_ROOT}${post.image}`;
         return 'http://i.imgur.com/1HHJKXC.png';
     }
 

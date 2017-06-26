@@ -1,11 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
+
+let API_HOST = '';
+if (process.env.NODE_ENV === 'production') API_HOST = 'vataxia.com';
 
 module.exports = {
-    devServer: {
-        inline: true,
-        contentBase: './dist',
-        port: 3000
-    },
     devtool: 'cheap-module-eval-source-map',
     entry: './src/index.js',
     module: {
@@ -26,5 +25,13 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'js/bundle.min.js'
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production'),
+                'API_ROOT': JSON.stringify(`http://${API_HOST}`)
+            }
+        })
+    ]
 };

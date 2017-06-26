@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 7.9.0
+deployment:
+  pre:
+    - rm -rf node_modules/ && npm install && npm rebuild
+  development:
+    branch: master
+    commands:
+      - npm run build
+      - aws s3 sync dist s3://vataxia.io/ --delete

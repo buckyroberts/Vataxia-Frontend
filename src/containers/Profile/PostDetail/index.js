@@ -16,7 +16,8 @@ class PostDetail extends Component {
     }
 
     renderPostReplyForm() {
-        const {params: {postId}} = this.props;
+        const {activeUser, params: {postId}} = this.props;
+        if(!activeUser) return null;
         return (
             <div className="card reply-form">
                 <div className="card-block">
@@ -87,6 +88,7 @@ class PostDetail extends Component {
 }
 
 export default connect((state, props) => ({
+    activeUser: state.activeUser,
     post: state.posts.data[props.params.postId],
     postReplies: state.postReplies.data,
     users: state.users.data,

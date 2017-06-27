@@ -32,7 +32,7 @@ class Profile extends Component {
 
     renderEditProfileImage() {
         const {activeUser, user} = this.props;
-        if (activeUser.id !== user.id) return null;
+        if (!activeUser || activeUser.id !== user.id) return null;
         return (
             <Dropzone className="edit-profile-image" onDrop={this.onDrop} multiple={false}>
                 Edit profile image

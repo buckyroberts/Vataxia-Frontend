@@ -13,6 +13,27 @@ class PostList extends Component {
         dispatch(getPostList());
     }
 
+    renderPostFormSection() {
+        const {activeUser} = this.props;
+        if (!activeUser) return null;
+        return (
+            <div role="tabpanel">
+                <ul className="nav nav-tabs" role="tablist">
+                    <li className="nav-item">
+                        <a className="nav-link active" id="post-tab" data-toggle="tab" href="#post" role="tab"
+                           aria-controls="post" aria-expanded="true">Post</a>
+                    </li>
+                </ul>
+                <div className="tab-content">
+                    <div role="tabpanel" className="tab-pane fade active show" id="post" aria-labelledby="post-tab"
+                         aria-expanded="true">
+                        <PostForm/>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     renderPostList(postList) {
         return postList
             .map((post, i) =>
@@ -40,20 +61,7 @@ class PostList extends Component {
     render() {
         return (
             <div className="PostList">
-                <div role="tabpanel">
-                    <ul className="nav nav-tabs" role="tablist">
-                        <li className="nav-item">
-                            <a className="nav-link active" id="post-tab" data-toggle="tab" href="#post" role="tab"
-                               aria-controls="post" aria-expanded="true">Post</a>
-                        </li>
-                    </ul>
-                    <div className="tab-content">
-                        <div role="tabpanel" className="tab-pane fade active show" id="post" aria-labelledby="post-tab"
-                             aria-expanded="true">
-                            <PostForm/>
-                        </div>
-                    </div>
-                </div>
+                {this.renderPostFormSection()}
                 {this.renderPostSection()}
             </div>
         );
@@ -62,5 +70,6 @@ class PostList extends Component {
 }
 
 export default connect(state => ({
+    activeUser: state.activeUser,
     posts: state.posts.data
 }))(PostList);

@@ -31,7 +31,8 @@ class PostListItem extends Component {
     }
 
     handleDownArrowClick = () => {
-        const {dispatch, post} = this.props;
+        const {activeUser, dispatch, post} = this.props;
+        if(!activeUser) return null;
         if(this.usersVoteValue() === null) {
             dispatch(createPostVote({
                 post: post.id,
@@ -50,7 +51,8 @@ class PostListItem extends Component {
     };
 
     handleUpArrowClick = () => {
-        const {dispatch, post} = this.props;
+        const {activeUser, dispatch, post} = this.props;
+        if(!activeUser) return null;
         if(this.usersVoteValue() === null) {
             dispatch(createPostVote({
                 post: post.id,
@@ -124,6 +126,7 @@ class PostListItem extends Component {
 
     usersVote() {
         const {activeUser, post, postVotes} = this.props;
+        if(!activeUser) return null;
         const vote = Object.values(postVotes)
             .filter(postVote => postVote.post === post.id)
             .filter(postVote => postVote.user === activeUser.id);
@@ -133,6 +136,7 @@ class PostListItem extends Component {
 
     usersVoteValue() {
         const {activeUser, post, postVotes} = this.props;
+        if(!activeUser) return null;
         const vote = Object.values(postVotes)
             .filter(postVote => postVote.post === post.id)
             .filter(postVote => postVote.user === activeUser.id);

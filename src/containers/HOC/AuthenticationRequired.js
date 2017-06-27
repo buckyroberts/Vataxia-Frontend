@@ -9,7 +9,7 @@ import {USER} from '../../utils/normalize';
 
 export default function(InnerComponent) {
 
-    class Authenticated extends Component {
+    class AuthenticationRequired extends Component {
 
         componentWillMount() {
             const {activeUser, dispatch} = this.props;
@@ -38,6 +38,6 @@ export default function(InnerComponent) {
 
     return connect(state => ({
         activeUser: state.activeUser
-    }))(Authenticated);
+    }))(AuthenticationRequired);
 
 }

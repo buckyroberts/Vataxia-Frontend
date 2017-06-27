@@ -1,6 +1,6 @@
 function apiToken() {
-    const user = JSON.parse(localStorage.getItem('activeUser')) || {};
-    return user.token;
+    const user = JSON.parse(localStorage.getItem('activeUser'));
+    return user ? user.token : null;
 }
 
 export function tokenHeader() {

@@ -20,9 +20,11 @@ export const login = data => async dispatch => {
     }
 };
 
-export const logout = () => {
+export const logout = () => dispatch => {
     localStorage.removeItem('activeUser');
-    return {type: actionTypes[`LOGOUT_SUCCESS`]};
+    dispatch({
+        type: actionTypes[`LOGOUT_SUCCESS`]
+    });
 };
 
 export const updatePassword = data => async() => {

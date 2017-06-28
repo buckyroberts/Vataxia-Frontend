@@ -7,7 +7,7 @@ export default function(InnerComponent) {
 
     class Unauthenticated extends Component {
 
-        componentWillMount() {
+        componentDidMount() {
             const {activeUser} = this.props;
             if(activeUser) hashHistory.push('/');
         }

@@ -3,6 +3,15 @@ import {schema} from 'normalizr';
 
 export const USER = new schema.Entity('USERS');
 
+export const ADMINISTRATOR = new schema.Entity('ADMINISTRATORS', {
+    user: USER,
+});
+
+export const MODERATOR = new schema.Entity('MODERATORS', {
+    sponsor: USER,
+    user: USER,
+});
+
 export const POST_REPLY = new schema.Entity('POST_REPLIES', {
     user: USER,
 });

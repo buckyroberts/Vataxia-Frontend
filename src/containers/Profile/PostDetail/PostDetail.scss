@@ -43,7 +43,16 @@
 
 		.card-block {
 			margin: 2px 0;
-			padding: 4px;
+			padding: 0;
+
+			.PostListItem {
+				padding: 0 6px;
+			}
+
+			.image-container {
+				padding: 4px 14px 12px;
+			}
+
 		}
 
 	}

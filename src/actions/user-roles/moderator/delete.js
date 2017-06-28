@@ -1,17 +1,19 @@
 import axios from 'axios';
+import {getUser} from '../../../actions/accounts/user/get';
 import actionTypes from '../../../config/action-types';
 import settings from '../../../config/settings';
 import {tokenHeader} from '../../../utils/requestHeaders';
 
 
-export const deletePostVote = postVote => async dispatch => {
-    const MODEL = 'POST_VOTES';
+export const deleteModerator = moderator => async dispatch => {
+    const MODEL = 'MODERATORS';
     dispatch({type: actionTypes[`UNSET_${MODEL}_PENDING`]});
     try {
-        await axios.delete(`${settings.API_ROOT}/post_votes/${postVote.id}`, tokenHeader());
+        await axios.delete(`${settings.API_ROOT}/moderators/${moderator.id}`, tokenHeader());
+        dispatch(getUser(moderator.user));
         dispatch({
             type: actionTypes[`UNSET_${MODEL}_SUCCESS`],
-            payload: postVote
+            payload: moderator
         });
     } catch(error) {
         dispatch({

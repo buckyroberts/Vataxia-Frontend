@@ -1,4 +1,4 @@
-.Home {
+.Users {
 	margin-top: 54px + 20px;
 
 	.tab-content {
@@ -6,7 +6,11 @@
 		border-bottom: 1px solid #ddd;
 		border-left: 1px solid #ddd;
 		border-right: 1px solid #ddd;
-		padding: 1em;
+
+		.tab-pane{
+			padding-top: 4px;
+		}
+
 	}
 
 }

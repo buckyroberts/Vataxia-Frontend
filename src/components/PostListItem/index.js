@@ -71,10 +71,9 @@ class PostListItem extends Component {
     };
 
     renderReplyCount() {
-        const {post, postReplies} = this.props;
-        const replies = Object.values(postReplies)
-            .filter(postReply => postReply.post === post.id);
-        return `${replies.length} replies`
+        const {post: {post_reply_count}} = this.props;
+        if(post_reply_count === 1) return '1 reply';
+        return `${post_reply_count} replies`
     }
 
     renderContent() {

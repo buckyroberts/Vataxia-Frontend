@@ -11,7 +11,7 @@ export default function(InnerComponent) {
 
     class AuthenticationRequired extends Component {
 
-        componentWillMount() {
+        componentDidMount() {
             const {activeUser, dispatch} = this.props;
             if(!activeUser) {
                 const data = localStorage.getItem('activeUser');

@@ -1,7 +1,7 @@
 @import "../../../assets/scss/bootstrap/mixins/_breakpoints.scss";
 @import "../../../assets/scss/bootstrap/variables";
 
-.card-columns {
+.Photos {
 
 	@include media-breakpoint-only(lg) {
 		column-count: 3;
@@ -11,49 +11,11 @@
 		column-count: 3;
 	}
 
-	.card-img-top {
-		border-radius: 0;
-	}
+	.card {
+		border: none;
 
-	.content {
-		line-height: 15px;
-		padding: 10px;
-
-		a.replies {
-			color: #ababab;
-			font-size: 10px;
-			font-weight: bold;
-
-			&:hover {
-				cursor: pointer;
-				text-decoration: underline;
-			}
-
-		}
-
-		a.title {
-			color: #3498db;
-			font-size: 14px;
-
-			&:hover {
-				text-decoration: none;
-			}
-
-		}
-
-		.details {
-			color: #ababab;
-			font-size: 10px;
-
-			a.user {
-
-				&:hover {
-					cursor: pointer;
-					text-decoration: underline;
-				}
-
-			}
-
+		.card-img-top {
+			border-radius: 0;
 		}
 
 	}

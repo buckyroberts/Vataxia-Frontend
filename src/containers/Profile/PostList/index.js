@@ -9,8 +9,10 @@ import './PostList.scss';
 class PostList extends Component {
 
     componentDidMount() {
-        const {dispatch} = this.props;
-        dispatch(getPostList());
+        const {dispatch, params: {userId}} = this.props;
+        dispatch(getPostList({
+            user: userId
+        }));
     }
 
     renderPostFormSection() {
@@ -36,7 +38,7 @@ class PostList extends Component {
 
     renderPostList(postList) {
         return postList
-            .map((post, i) =>
+            .map(post =>
                 <PostListItem
                     key={post.id}
                     post={post}

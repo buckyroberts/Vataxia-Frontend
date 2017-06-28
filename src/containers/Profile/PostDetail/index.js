@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
-import {getUsersFullName} from '../../../utils/user';
+import settings from '../../../config/settings';
 import PostReplyForm from '../../../forms/PostReplyForm';
+import {getUsersFullName} from '../../../utils/user';
 import './PostDetail.scss'
 
 
@@ -13,6 +14,23 @@ class PostDetail extends Component {
     componentDidMount() {
         const {dispatch, params: {postId}} = this.props;
         dispatch(getPost(postId));
+    }
+
+    getProfileImage(user) {
+        const {users} = this.props;
+        const image = users[user].profile.image;
+        if (image) return `${settings.API_ROOT}${image}`;
+        return 'http://i.imgur.com/uuykYlB.png';
+    }
+
+    renderPostImageFull() {
+        const {post: {image}} = this.props;
+        if(!image) return null;
+        return (
+            <div className="image-container">
+                <img className="img-fluid" src={`${settings.API_ROOT}${image}`}/>
+            </div>
+        )
     }
 
     renderPostReplyForm() {
@@ -33,7 +51,7 @@ class PostDetail extends Component {
             .map(postReply =>
                 <div className="media reply" key={postReply.id}>
                     <a href="">
-                        <img className="d-flex" src="http://i.imgur.com/uuykYlB.png"/>
+                        <img className="d-flex" src={this.getProfileImage(postReply.user)}/>
                     </a>
                     <div className="media-body">
                         <Link className="user"
@@ -68,6 +86,7 @@ class PostDetail extends Component {
                         key={post.id}
                         post={post}
                     />
+                    {this.renderPostImageFull()}
                 </div>
             </div>
         );

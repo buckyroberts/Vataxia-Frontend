@@ -10,7 +10,7 @@ export default function(InnerComponent) {
 
     class Authenticate extends Component {
 
-        componentWillMount() {
+        componentDidMount() {
             const {activeUser, dispatch} = this.props;
             if(!activeUser) {
                 const data = localStorage.getItem('activeUser');

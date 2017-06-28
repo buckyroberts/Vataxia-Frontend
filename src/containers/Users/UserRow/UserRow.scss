@@ -1,0 +1,31 @@
+.UserRow {
+	border-bottom: 1px solid #ddd;
+	padding: 10px 12px;
+
+	.media {
+
+		img {
+			margin-right: 8px;
+			width: 40px;
+		}
+
+		.btn {
+			margin-left: 6px;
+		}
+
+		.media-body {
+
+			a.user-name {
+				font-weight: 500;
+			}
+
+			.details {
+				color: #ababab;
+				font-size: 10px;
+			}
+
+		}
+
+	}
+
+}

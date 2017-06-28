@@ -12,6 +12,10 @@ const MODELS = [
     // Replies
     'POST_REPLIES',
 
+    // User roles
+    'ADMINISTRATORS',
+    'MODERATORS',
+
     // Votes
     'POST_VOTES',
 

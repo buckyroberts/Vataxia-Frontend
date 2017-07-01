@@ -8,6 +8,11 @@ export const INVITATION = new schema.Entity('INVITATIONS', {
     sender: USER,
 });
 
+export const TRANSFER = new schema.Entity('TRANSFERS', {
+    receiver: USER,
+    sender: USER,
+});
+
 export const WALLET = new schema.Entity('WALLETS', {
     user: USER,
 });

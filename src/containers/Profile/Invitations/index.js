@@ -4,6 +4,7 @@ import {createInvitation} from '../../../actions/credits/invitation/create';
 import {getInvitationList} from '../../../actions/credits/invitation/list';
 import {getWallet} from '../../../actions/credits/wallet/get';
 import FollowingUser from '../../../components/FollowingUser';
+import TransferForm from '../../../forms/TransferForm';
 import './Invitations.scss';
 
 
@@ -108,19 +109,19 @@ class Invitations extends Component {
     }
 
     renderSendCredits() {
-        const {activeUser, params: {userId}} = this.props;
+        const {activeUser, params: {userId}, wallets} = this.props;
         if(activeUser.id === Number(userId)) return null;
+        const balance = wallets[activeUser.id] ? wallets[activeUser.id].balance : 0;
         return (
             <div className="row">
                 <div className="col">
                     <div className="card">
                         <div className="card-block">
                             <div className="card-title">Send Credits</div>
-                            <div className="content">
-                                <div>Balance: xxx credits</div>
-                                <div>Amount: input here</div>
-                            </div>
-                            <button className="btn btn-primary">Send</button>
+                            <div className="content">Balance: {balance} credits</div>
+                            <TransferForm
+                                receiver={Number(userId)}
+                            />
                         </div>
                     </div>
                 </div>

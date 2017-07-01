@@ -16,6 +16,7 @@ class Invitations extends Component {
             sender: userId
         }));
         dispatch(getWallet(activeUser.id));
+        dispatch(getWallet(userId));
     }
 
     handleCreateInvitation = () => {
@@ -111,14 +112,26 @@ class Invitations extends Component {
     renderSendCredits() {
         const {activeUser, params: {userId}, wallets} = this.props;
         if(activeUser.id === Number(userId)) return null;
-        const balance = wallets[activeUser.id] ? wallets[activeUser.id].balance : 0;
+        const my_balance = wallets[activeUser.id] ? wallets[activeUser.id].balance : 0;
+        const their_balance = wallets[userId] ? wallets[userId].balance : 0;
         return (
             <div className="row">
                 <div className="col">
-                    <div className="card">
+                    <div className="card send-credits">
                         <div className="card-block">
                             <div className="card-title">Send Credits</div>
-                            <div className="content">Balance: {balance} credits</div>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td className="key">My balance:</td>
+                                    <td>{my_balance} credits</td>
+                                </tr>
+                                <tr>
+                                    <td className="key">Their balance:</td>
+                                    <td>{their_balance} credits</td>
+                                </tr>
+                                </tbody>
+                            </table>
                             <TransferForm
                                 receiver={Number(userId)}
                             />

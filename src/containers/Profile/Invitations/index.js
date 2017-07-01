@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {createInvitation} from '../../../actions/credits/invitation/create';
 import {getInvitationList} from '../../../actions/credits/invitation/list';
 import FollowingUser from '../../../components/FollowingUser';
 import './Invitations.scss';
@@ -13,6 +14,12 @@ class Invitations extends Component {
             sender: userId
         }));
     }
+
+    handleCreateInvitation = () => {
+        const {dispatch} = this.props;
+        dispatch(createInvitation());
+        console.log();
+    };
 
     renderAccepted() {
         return (
@@ -50,7 +57,7 @@ class Invitations extends Component {
                         <div className="card-block">
                             <div className="card-title">Create Invitation</div>
                             <div className="content">Balance: 20 credits</div>
-                            <button className="btn btn-primary">Create</button>
+                            <button className="btn btn-primary" onClick={this.handleCreateInvitation}>Create</button>
                         </div>
                     </div>
                 </div>

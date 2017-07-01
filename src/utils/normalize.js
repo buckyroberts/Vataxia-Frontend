@@ -4,6 +4,7 @@ import {schema} from 'normalizr';
 export const USER = new schema.Entity('USERS');
 
 export const INVITATION = new schema.Entity('INVITATIONS', {
+    receiver: USER,
     sender: USER,
 });
 

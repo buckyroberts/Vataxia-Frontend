@@ -166,5 +166,5 @@ export default connect(state => ({
     activeUser: state.activeUser,
     postReplies: state.postReplies.data,
     postVotes: state.postVotes.data,
-    users: state.users.data,
+    users: state.users.data
 }))(PostListItem);

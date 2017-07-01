@@ -20,12 +20,24 @@ class Invitations extends Component {
                 <div className="card-block">
                     <div className="card-title">Accepted</div>
                     <div>
-                        <FollowingUser/>
-                        <FollowingUser/>
+                        {this.renderAcceptedRows()}
                     </div>
                 </div>
             </div>
         );
+    }
+
+    renderAcceptedRows() {
+        const {invitations, params: {userId}, users} = this.props;
+        return Object.values(invitations)
+            .filter(invitation => invitation.receiver !== null)
+            .filter(invitation => invitation.sender === Number(userId))
+            .map(invitation => (
+                <FollowingUser
+                    key={invitation.id}
+                    user={users[invitation.receiver]}
+                />
+            ));
     }
 
     renderCreateInvitation() {
@@ -63,14 +75,7 @@ class Invitations extends Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>abc-123</td>
-                                    <td>http://vataxia.io/accept/abc-123</td>
-                                </tr>
-                                <tr>
-                                    <td>abc-123</td>
-                                    <td>http://vataxia.io/accept/abc-123</td>
-                                </tr>
+                                {this.renderPendingRows()}
                                 </tbody>
                             </table>
                         </div>
@@ -78,6 +83,19 @@ class Invitations extends Component {
                 </div>
             </div>
         );
+    }
+
+    renderPendingRows() {
+        const {invitations, params: {userId}} = this.props;
+        return Object.values(invitations)
+            .filter(invitation => invitation.receiver === null)
+            .filter(invitation => invitation.sender === Number(userId))
+            .map(invitation => (
+                <tr key={invitation.id}>
+                    <td>{invitation.code}</td>
+                    <td>http://vataxia.io/accept/{invitation.code}</td>
+                </tr>
+            ));
     }
 
     renderSendCredits() {
@@ -119,5 +137,7 @@ class Invitations extends Component {
 }
 
 export default connect(state => ({
-    activeUser: state.activeUser
+    activeUser: state.activeUser,
+    invitations: state.invitations.data,
+    users: state.users.data
 }))(Invitations);

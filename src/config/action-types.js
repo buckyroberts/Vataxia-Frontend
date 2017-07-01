@@ -3,6 +3,11 @@ const MODELS = [
     // Accounts
     'USERS',
 
+    // Credits
+    'INVITATIONS',
+    'TRANSFERS',
+    'WALLETS',
+
     // Posts
     'POSTS',
 

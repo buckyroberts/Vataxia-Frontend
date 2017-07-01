@@ -53,11 +53,12 @@ class Profile extends Component {
     }
 
     renderMenu() {
-        const {user} = this.props;
+        const {activeUser, user} = this.props;
         return (
             <div className="list-group">
                 {this.renderMenuItem(`/profile/${user.id}/posts`, 'Home')}
                 {this.renderMenuItem(`/profile/${user.id}/about`, 'About')}
+                {activeUser && this.renderMenuItem(`/profile/${user.id}/invitations`, 'Invitations')}
                 {this.renderMenuItem(`/profile/${user.id}/photos`, 'Photos')}
             </div>
         );

@@ -1,10 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {getInvitationList} from '../../../actions/credits/invitation/list';
 import FollowingUser from '../../../components/FollowingUser';
 import './Invitations.scss';
 
 
 class Invitations extends Component {
+
+    componentDidMount() {
+        const {dispatch, params: {userId}} = this.props;
+        dispatch(getInvitationList({
+            sender: userId
+        }));
+    }
 
     renderAccepted() {
         return (

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 import settings from '../../config/settings';
 import {getUsersFullName} from '../../utils/user';
@@ -20,9 +21,13 @@ class FollowingUser extends Component {
             <div className="FollowingUser" key={this.props.id}>
                 <div className="d-flex justify-content-start">
                     <div className="media">
-                        <img className="d-flex mr-3" src={this.getProfileImage()}/>
+                        <Link to={`/profile/${user.id}/posts`}>
+                            <img className="d-flex mr-3" src={this.getProfileImage()}/>
+                        </Link>
                         <div className="media-body">
-                            <a className="name">{getUsersFullName(users, user.id)}</a>
+                            <Link className="name" to={`/profile/${user.id}/posts`}>
+                                {getUsersFullName(users, user.id)}
+                            </Link>
                             <div className="details">{user.role}</div>
                         </div>
                     </div>

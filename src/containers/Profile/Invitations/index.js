@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {createInvitation} from '../../../actions/credits/invitation/create';
 import {getInvitationList} from '../../../actions/credits/invitation/list';
+import {getWallet} from '../../../actions/credits/wallet/get';
 import FollowingUser from '../../../components/FollowingUser';
 import './Invitations.scss';
 
@@ -9,16 +10,16 @@ import './Invitations.scss';
 class Invitations extends Component {
 
     componentDidMount() {
-        const {dispatch, params: {userId}} = this.props;
+        const {activeUser, dispatch, params: {userId}} = this.props;
         dispatch(getInvitationList({
             sender: userId
         }));
+        dispatch(getWallet(activeUser.id));
     }
 
     handleCreateInvitation = () => {
         const {dispatch} = this.props;
         dispatch(createInvitation());
-        console.log();
     };
 
     renderAccepted() {
@@ -48,15 +49,16 @@ class Invitations extends Component {
     }
 
     renderCreateInvitation() {
-        const {activeUser, params: {userId}} = this.props;
+        const {activeUser, params: {userId}, wallets} = this.props;
         if(activeUser.id !== Number(userId)) return null;
+        const balance = wallets[activeUser.id] ? wallets[activeUser.id].balance : 0;
         return (
             <div className="row">
                 <div className="col">
                     <div className="card">
                         <div className="card-block">
                             <div className="card-title">Create Invitation</div>
-                            <div className="content">Balance: 20 credits</div>
+                            <div className="content">Balance: {balance} credits</div>
                             <button className="btn btn-primary" onClick={this.handleCreateInvitation}>Create</button>
                         </div>
                     </div>
@@ -115,7 +117,7 @@ class Invitations extends Component {
                         <div className="card-block">
                             <div className="card-title">Send Credits</div>
                             <div className="content">
-                                <div>Balance: 20 credits</div>
+                                <div>Balance: xxx credits</div>
                                 <div>Amount: input here</div>
                             </div>
                             <button className="btn btn-primary">Send</button>
@@ -146,5 +148,6 @@ class Invitations extends Component {
 export default connect(state => ({
     activeUser: state.activeUser,
     invitations: state.invitations.data,
-    users: state.users.data
+    users: state.users.data,
+    wallets: state.wallets.data
 }))(Invitations);

@@ -104,7 +104,7 @@ class Invitations extends Component {
             .map(invitation => (
                 <tr key={invitation.id}>
                     <td>{invitation.code}</td>
-                    <td>http://vataxia.io/accept/{invitation.code}</td>
+                    <td>http://vataxia.io/#/accept-invitation/{invitation.code}</td>
                 </tr>
             ));
     }

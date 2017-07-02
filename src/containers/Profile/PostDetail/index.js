@@ -79,6 +79,7 @@ class PostDetail extends Component {
                         key={post.id}
                         post={post}
                     />
+                    <div className="post-body">{post.body}</div>
                     {this.renderPostImageFull()}
                 </div>
             </div>

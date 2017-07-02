@@ -27,7 +27,7 @@ class Login extends Component {
                             <button className="btn btn-primary btn-block" type="submit">Sign in</button>
                         </form>
                         <div className="create-account-container">
-                            <Link className="create-account" to="/register">Create an Account</Link>
+                            <Link className="create-account" to="/accept-invitation">Create an Account</Link>
                         </div>
                     </div>
                 </div>

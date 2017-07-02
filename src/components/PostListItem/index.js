@@ -7,7 +7,7 @@ import {createPostVote} from '../../actions/votes/post-vote/create';
 import {deletePostVote} from '../../actions/votes/post-vote/delete';
 import {editPostVote} from '../../actions/votes/post-vote/edit';
 import settings from '../../config/settings';
-import {getUsersFullName} from '../../utils/user';
+import {getFullName} from '../../utils/user';
 import './PostListItem.scss';
 
 
@@ -85,7 +85,7 @@ class PostListItem extends Component {
                 </Link>
                 <div className="details">
                     <Link className="user" to={`/profile/${post.user}/posts`}>
-                        {getUsersFullName(users, post.user)}
+                        {getFullName(post.user, users)}
                     </Link>
                     {' · '}
                     <span className="date">{post.created_date}</span>

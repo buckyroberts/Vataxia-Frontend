@@ -5,7 +5,7 @@ import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
 import settings from '../../../config/settings';
 import PostReplyForm from '../../../forms/PostReplyForm';
-import {getUsersFullName} from '../../../utils/user';
+import {getFullName, getProfileImage} from '../../../utils/user';
 import './PostDetail.scss'
 
 
@@ -14,13 +14,6 @@ class PostDetail extends Component {
     componentDidMount() {
         const {dispatch, params: {postId}} = this.props;
         dispatch(getPost(postId));
-    }
-
-    getProfileImage(user) {
-        const {users} = this.props;
-        const image = users[user].profile.image;
-        if (image) return `${settings.API_ROOT}${image}`;
-        return 'http://i.imgur.com/uuykYlB.png';
     }
 
     renderPostImageFull() {
@@ -51,11 +44,11 @@ class PostDetail extends Component {
             .map(postReply =>
                 <div className="media reply" key={postReply.id}>
                     <a href="">
-                        <img className="d-flex" src={this.getProfileImage(postReply.user)}/>
+                        <img className="d-flex" src={getProfileImage(postReply.user, users)}/>
                     </a>
                     <div className="media-body">
                         <Link className="user"
-                              to={`/profile/${postReply.user}/posts`}>{getUsersFullName(users, postReply.user)}</Link>
+                              to={`/profile/${postReply.user}/posts`}>{getFullName(postReply.user, users)}</Link>
                         <span className="date"> · {postReply.modified_date}</span>
                         <div className="content">{postReply.body}</div>
                     </div>
@@ -110,5 +103,5 @@ export default connect((state, props) => ({
     activeUser: state.activeUser,
     post: state.posts.data[props.params.postId],
     postReplies: state.postReplies.data,
-    users: state.users.data,
+    users: state.users.data
 }))(PostDetail);

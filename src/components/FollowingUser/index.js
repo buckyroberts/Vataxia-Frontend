@@ -2,18 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
-import settings from '../../config/settings';
-import {getUsersFullName} from '../../utils/user';
+import {getFullName, getProfileImage} from '../../utils/user';
 import './FollowingUser.scss';
 
 
 class FollowingUser extends Component {
-
-    getProfileImage() {
-        const {user: {profile}} = this.props;
-        if(profile.image) return `${settings.API_ROOT}${profile.image}`;
-        return 'http://i.imgur.com/uuykYlB.png';
-    }
 
     render() {
         const {children, user, users} = this.props;
@@ -22,11 +15,11 @@ class FollowingUser extends Component {
                 <div className="d-flex justify-content-start">
                     <div className="media">
                         <Link to={`/profile/${user.id}/posts`}>
-                            <img className="d-flex mr-3" src={this.getProfileImage()}/>
+                            <img className="d-flex mr-3" src={getProfileImage(user.id, users)}/>
                         </Link>
                         <div className="media-body">
                             <Link className="name" to={`/profile/${user.id}/posts`}>
-                                {getUsersFullName(users, user.id)}
+                                {getFullName(user.id, users)}
                             </Link>
                             <div className="details">{user.role}</div>
                         </div>

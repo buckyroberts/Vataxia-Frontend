@@ -47,6 +47,7 @@ AcceptInvitationForm = reduxForm({
     form: 'AcceptInvitationForm'
 })(AcceptInvitationForm);
 
-export default connect(state => ({
-    activeUser: state.activeUser
+export default connect((state, props) => ({
+    activeUser: state.activeUser,
+    initialValues: props.params
 }))(AcceptInvitationForm);

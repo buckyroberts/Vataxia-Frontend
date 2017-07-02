@@ -10,5 +10,6 @@ export default (
     <Route path="/" component={Unauthenticated(Authentication)}>
         <Route path="login" component={Login}/>
         <Route path="accept-invitation" component={AcceptInvitation}/>
+        <Route path="accept-invitation/:code" component={AcceptInvitation}/>
     </Route>
 );

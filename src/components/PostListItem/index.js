@@ -14,7 +14,7 @@ class PostListItem extends Component {
 
     getPostImage() {
         const {post} = this.props;
-        if (post.image) return `${settings.API_ROOT}${post.image}`;
+        if(post.image) return `${settings.API_ROOT}${post.image}`;
         return 'http://i.imgur.com/1HHJKXC.png';
     }
 
@@ -84,8 +84,9 @@ class PostListItem extends Component {
                     {post.title}
                 </Link>
                 <div className="details">
-                    <Link className="user"
-                          to={`/profile/${post.user}/posts`}>{getUsersFullName(users, post.user)}</Link>
+                    <Link className="user" to={`/profile/${post.user}/posts`}>
+                        {getUsersFullName(users, post.user)}
+                    </Link>
                     {' · '}
                     <span className="date">{post.created_date}</span>
                 </div>
@@ -166,5 +167,5 @@ export default connect(state => ({
     activeUser: state.activeUser,
     postReplies: state.postReplies.data,
     postVotes: state.postVotes.data,
-    users: state.users.data,
+    users: state.users.data
 }))(PostListItem);

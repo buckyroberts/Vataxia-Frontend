@@ -1,42 +1,36 @@
 .FollowingUser {
-	margin-bottom: 10px;
 
-	.card-block {
-		padding: 10px;
+	.media {
 
-		.media {
+		img {
+			margin-right: 10px !important;
+			width: 40px;
+		}
 
-			img {
-				margin-right: 10px !important;
-				width: 40px;
+		.media-body {
+
+			a.name {
+				color: #3498db;
+				font-weight: 500;
 			}
 
-			.media-body {
-
-				a.name {
-					color: #3498db;
-					font-weight: 500;
-				}
-
-				.details {
-					color: #ababab;
-					font-size: 10px;
-				}
-
+			.details {
+				color: #ababab;
+				font-size: 10px;
 			}
 
 		}
 
-		.right-container {
-			align-items: center;
-			padding: 0 6px;
+	}
 
-			.right-content {
+	.right-container {
+		align-items: center;
+		padding: 0 6px;
 
-				button {
-					font-size: 10px;
-				}
+		.right-content {
 
+			button {
+				font-size: 10px;
 			}
 
 		}

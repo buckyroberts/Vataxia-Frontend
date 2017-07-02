@@ -1,7 +1,74 @@
+$cell-padding: 6px 10px 6px 0;
+
 .Invitations {
+
+	.FollowingUser {
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 8px;
+		padding-bottom: 8px;
+
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
+	}
 
 	.card {
 		margin-bottom: 10px;
+
+		.card-block {
+
+			.content {
+				margin-bottom: 10px;
+			}
+
+			.table {
+				margin-bottom: 0;
+
+				thead {
+
+					th {
+						border: none;
+						padding: $cell-padding;
+					}
+
+				}
+
+				tbody {
+
+					td {
+						padding: $cell-padding;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	.send-credits {
+
+		table {
+
+			tbody {
+
+				tr {
+
+					.key {
+						font-weight: bold;
+						padding: 1px 10px 1px 0;
+					}
+
+				}
+
+			}
+
+		}
+
 	}
 
 }

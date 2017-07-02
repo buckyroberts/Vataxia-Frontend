@@ -12,7 +12,7 @@ class Navigation extends Component {
         hashHistory.push('/');
     };
 
-    renderLogin() {
+    renderUnauthenticatedMenu() {
         const {activeUser} = this.props;
         if(activeUser) return null;
         return (
@@ -20,6 +20,11 @@ class Navigation extends Component {
                 <li className="nav-item">
                     <Link className="nav-link" to="/users">
                         Users
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/accept-invitation">
+                        Create Account
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -77,7 +82,7 @@ class Navigation extends Component {
                 </button>
                 <Link className="navbar-brand" to="/">Vataxia</Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    {this.renderLogin()}
+                    {this.renderUnauthenticatedMenu()}
                     {this.renderUserControls()}
                 </div>
             </nav>

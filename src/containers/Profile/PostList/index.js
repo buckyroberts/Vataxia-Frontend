@@ -16,8 +16,8 @@ class PostList extends Component {
     }
 
     renderPostFormSection() {
-        const {activeUser} = this.props;
-        if (!activeUser) return null;
+        const {activeUser, params: {userId}} = this.props;
+        if (!activeUser || activeUser.id !== Number(userId)) return null;
         return (
             <div role="tabpanel">
                 <ul className="nav nav-tabs" role="tablist">

@@ -35,7 +35,7 @@ class PostReplyForm extends Component {
         return (
             <form onSubmit={handleSubmit(this.formSubmit)}>
                 <FormStatus formState={this.state}/>
-                <Field component={renderTextArea} label="Body" name="body"/>
+                <Field component={renderTextArea} label="Reply" name="body"/>
                 <button className="btn btn-primary" type="submit">Submit</button>
             </form>
         );

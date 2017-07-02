@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
+import {deletePost} from '../../actions/posts/post/delete';
 import {createPostVote} from '../../actions/votes/post-vote/create';
 import {deletePostVote} from '../../actions/votes/post-vote/delete';
 import {editPostVote} from '../../actions/votes/post-vote/edit';
@@ -31,7 +32,8 @@ class PostListItem extends Component {
     }
 
     handleDelete = () => {
-        console.log('Deleting post...')
+        const {dispatch, post} = this.props;
+        dispatch(deletePost(post));
     };
 
     handleDownArrowClick = () => {

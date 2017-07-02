@@ -12,24 +12,66 @@ class Navigation extends Component {
         hashHistory.push('/');
     };
 
+    renderAccountDropdown() {
+        return (
+            <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href=""
+                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    Account
+                </a>
+                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <Link className="dropdown-item" to="/account/basic-information">Settings</Link>
+                    <div className="divider"/>
+                    <a className="dropdown-item" href="" onClick={this.logoutUser}>Logout</a>
+                </div>
+            </li>
+        );
+    }
+
+    renderDevelopersDropdown() {
+        return (
+            <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href=""
+                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    Developers
+                </a>
+                <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a className="dropdown-item" href="http://vataxia.net/" target="_blank">
+                        API Docs
+                    </a>
+                    <a className="dropdown-item" href="https://github.com/buckyroberts/Vataxia" target="_blank">
+                        Backend (GitHub)
+                    </a>
+                    <a className="dropdown-item" href="https://github.com/buckyroberts/Vataxia-Frontend" target="_blank">
+                        Frontend (GitHub)
+                    </a>
+                    <a className="dropdown-item" href="https://www.reddit.com/r/Vataxia/" target="_blank">
+                        Reddit
+                    </a>
+                    <a className="dropdown-item" href="https://vataxia.slack.com/" target="_blank">
+                        Slack
+                    </a>
+                </div>
+            </li>
+        );
+    }
+
     renderUnauthenticatedMenu() {
         const {activeUser} = this.props;
         if(activeUser) return null;
         return (
             <ul className="nav navbar-nav ml-auto">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/users">
-                        Users
-                    </Link>
-                </li>
+                {this.renderDevelopersDropdown()}
                 <li className="nav-item">
                     <Link className="nav-link" to="/accept-invitation">
-                        Create Account
+                        Register
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/login">
-                        Login
+                        Sign In
                     </Link>
                 </li>
             </ul>
@@ -46,27 +88,17 @@ class Navigation extends Component {
                         <i className="fa fa-envelope"/>
                     </Link>
                 </li>
+                {this.renderAccountDropdown()}
+                {this.renderDevelopersDropdown()}
+                <li className="nav-item">
+                    <Link className="nav-link" to={`/profile/${activeUser.id}/posts`}>
+                        My Profile
+                    </Link>
+                </li>
                 <li className="nav-item">
                     <Link className="nav-link" to={`/users`}>
                         Users
                     </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to={`/profile/${activeUser.id}/posts`}>
-                        Profile
-                    </Link>
-                </li>
-                <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href=""
-                       id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">
-                        Account
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <Link className="dropdown-item" to="/account/basic-information">Settings</Link>
-                        <div className="divider"/>
-                        <a className="dropdown-item" href="" onClick={this.logoutUser}>Logout</a>
-                    </div>
                 </li>
             </ul>
         );

@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 import {getUser} from '../../actions/accounts/user/get';
 import {editProfile} from '../../actions/accounts/profile/edit';
 import Navigation from '../../components/Navigation';
-import settings from '../../config/settings';
+import {getFullName, getProfileImage} from '../../utils/user';
 import './Profile.scss';
 
 
@@ -14,12 +14,6 @@ class Profile extends Component {
     componentDidMount() {
         const {dispatch, params: {userId}} = this.props;
         dispatch(getUser(userId));
-    }
-
-    getProfileImage() {
-        const {user: {profile}} = this.props;
-        if(profile.image) return `${settings.API_ROOT}${profile.image}`;
-        return 'http://i.imgur.com/uuykYlB.png';
     }
 
     onDrop = files => {
@@ -73,7 +67,7 @@ class Profile extends Component {
     }
 
     render() {
-        const {user} = this.props;
+        const {user, users} = this.props;
         if(!user) return null;
         return (
             <div>
@@ -82,9 +76,9 @@ class Profile extends Component {
                     <div className="Profile">
                         <div className="row">
                             <div className="col-2">
-                                <img src={this.getProfileImage()} className="img-fluid"/>
+                                <img src={getProfileImage(user.id, users)} className="img-fluid"/>
                                 {this.renderEditProfileImage()}
-                                <div className="user-name">{`${user.first_name} ${user.last_name}`}</div>
+                                <div className="user-name">{getFullName(user.id, users)}</div>
                                 {this.renderActionButtons()}
                                 {this.renderMenu()}
                             </div>
@@ -103,4 +97,5 @@ class Profile extends Component {
 export default connect((state, props) => ({
     activeUser: state.activeUser,
     user: state.users.data[props.params.userId],
+    users: state.users.data
 }))(Profile);

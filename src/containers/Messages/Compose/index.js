@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {getUser} from '../../../actions/accounts/user/get';
 import PrivateMessageForm from '../../../forms/PrivateMessageForm';
-import {getUsersFullName} from '../../../utils/user';
+import {getFullName, getProfileImage} from '../../../utils/user';
 import './Compose.scss';
 
 
@@ -19,16 +19,16 @@ class Compose extends Component {
         return (
             <div className="media">
                 <Link to={`/profile/${activeUser.id}/posts`}>
-                    <img className="d-flex" src="http://i.imgur.com/uuykYlB.png"/>
+                    <img className="d-flex" src={getProfileImage(activeUser.id, users)}/>
                 </Link>
                 <div className="media-body">
                     <Link className="user" to={`/profile/${activeUser.id}/posts`}>
-                        {getUsersFullName(users, activeUser.id)}
+                        {getFullName(activeUser.id, users)}
                     </Link>
                     <div className="details">
                         to{' '}
                         <Link className="receiver" to={`/profile/${receiver.id}/posts`}>
-                            {getUsersFullName(users, receiver.id)}
+                            {getFullName(receiver.id, users)}
                         </Link>
                     </div>
                 </div>

@@ -49,3 +49,13 @@ To view the application, go to: [http://localhost:3000/](http://localhost:3000/)
 
 **Private messaging**
 ![](http://i.imgur.com/u26TC1I.png)
+
+## Links
+
+- [API Docs](http://vataxia.net/)
+- [Backend (GitHub)](https://github.com/buckyroberts/Vataxia)
+- [Facebook](https://www.facebook.com/TheNewBoston-464114846956315/)
+- [Reddit](https://www.reddit.com/r/Vataxia/)
+- [Slack](https://vataxia.slack.com/)
+- [Support](https://www.patreon.com/thenewboston)
+- [Twitter](https://twitter.com/bucky_roberts)

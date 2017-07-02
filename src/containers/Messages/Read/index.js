@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {getPrivateMessage} from '../../../actions/private-messages/private-message/get';
-import {getUsersFullName} from '../../../utils/user';
+import {getFullName} from '../../../utils/user';
 import './Read.scss';
 
 
@@ -30,13 +30,13 @@ class Read extends Component {
                 </Link>
                 <div className="media-body">
                     <Link className="user" to={`/profile/${privateMessage.sender}/posts`}>
-                        {getUsersFullName(users, privateMessage.sender)}
+                        {getFullName(privateMessage.sender, users)}
                     </Link>
                     <span className="date"> · {privateMessage.created_date}</span>
                     <div className="details">
                         to{' '}
                         <Link className="receiver" to={`/profile/${privateMessage.receiver}/posts`}>
-                            {getUsersFullName(users, privateMessage.receiver)}
+                            {getFullName(privateMessage.receiver, users)}
                         </Link>
                     </div>
                 </div>

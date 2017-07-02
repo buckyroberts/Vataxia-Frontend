@@ -9,14 +9,19 @@ $col-padding: 0 6px;
 		line-height: 15px;
 		padding: 0 4px;
 
-		a.replies {
+		.bottom {
 			color: #ababab;
 			font-size: 10px;
-			font-weight: bold;
 
-			&:hover {
-				cursor: pointer;
-				text-decoration: underline;
+			a {
+				color: #ababab;
+				font-weight: bold;
+
+				&:hover {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+
 			}
 
 		}

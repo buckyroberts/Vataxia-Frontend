@@ -4,14 +4,14 @@ import settings from '../../../config/settings';
 import {tokenHeader} from '../../../utils/requestHeaders';
 
 
-export const deletePostVote = postVote => async dispatch => {
-    const MODEL = 'POST_VOTES';
+export const deletePost = post => async dispatch => {
+    const MODEL = 'POSTS';
     dispatch({type: actionTypes[`UNSET_${MODEL}_PENDING`]});
     try {
-        await axios.delete(`${settings.API_ROOT}/post_votes/${postVote.id}`, tokenHeader());
+        await axios.delete(`${settings.API_ROOT}/posts/${post.id}`, tokenHeader());
         dispatch({
             type: actionTypes[`UNSET_${MODEL}_SUCCESS`],
-            payload: postVote
+            payload: post
         });
     } catch(error) {
         throw error;

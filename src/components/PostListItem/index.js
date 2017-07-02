@@ -30,6 +30,10 @@ class PostListItem extends Component {
             .reduce((acc, postVote) => acc + postVote.value, 0);
     }
 
+    handleDelete = () => {
+        console.log('Deleting post...')
+    };
+
     handleDownArrowClick = () => {
         const {activeUser, dispatch, post} = this.props;
         if(!activeUser) return null;
@@ -70,12 +74,6 @@ class PostListItem extends Component {
         }
     };
 
-    renderReplyCount() {
-        const {post: {post_reply_count}} = this.props;
-        if(post_reply_count === 1) return '1 reply';
-        return `${post_reply_count} replies`
-    }
-
     renderContent() {
         const {post, users} = this.props;
         return (
@@ -90,11 +88,31 @@ class PostListItem extends Component {
                     {' · '}
                     <span className="date">{post.created_date}</span>
                 </div>
-                <Link className="replies" to={`/profile/${post.user}/posts/${post.id}`}>
-                    {this.renderReplyCount()}
-                </Link>
+                <div className="bottom">
+                    <Link to={`/profile/${post.user}/posts/${post.id}`}>
+                        {this.renderReplyCount()}
+                    </Link>
+                    {this.renderDelete()}
+                </div>
             </div>
         );
+    }
+
+    renderDelete() {
+        const {activeUser, post} = this.props;
+        if(!activeUser || activeUser.id !== post.user) return null;
+        return (
+            <span>
+                {' · '}
+                <a onClick={this.handleDelete}>Delete</a>
+            </span>
+        );
+    }
+
+    renderReplyCount() {
+        const {post: {post_reply_count}} = this.props;
+        if(post_reply_count === 1) return '1 reply';
+        return `${post_reply_count} replies`
     }
 
     renderThumbnail() {

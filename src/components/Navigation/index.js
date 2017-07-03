@@ -58,6 +58,16 @@ class Navigation extends Component {
         );
     }
 
+    renderToggleButton() {
+        return (
+            <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"/>
+            </button>
+        );
+    }
+
     renderUnauthenticatedMenu() {
         const {activeUser} = this.props;
         if(activeUser) return null;
@@ -106,18 +116,16 @@ class Navigation extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-                <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"/>
-                </button>
-                <Link className="navbar-brand" to="/">Vataxia</Link>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    {this.renderUnauthenticatedMenu()}
-                    {this.renderUserControls()}
-                </div>
-            </nav>
+            <div className="Navigation">
+                <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                    {this.renderToggleButton()}
+                    <Link className="navbar-brand" to="/">Vataxia</Link>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        {this.renderUnauthenticatedMenu()}
+                        {this.renderUserControls()}
+                    </div>
+                </nav>
+            </div>
         );
     }
 

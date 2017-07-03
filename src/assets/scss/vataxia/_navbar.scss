@@ -1,3 +1,6 @@
+@import "../../../assets/scss/bootstrap/mixins/_breakpoints.scss";
+@import "../../../assets/scss/bootstrap/variables";
+
 nav.bg-inverse {
 	background-color: #2c3e50 !important;
 
@@ -5,7 +8,12 @@ nav.bg-inverse {
 		font-size: 18px;
 	}
 
-	.navbar-nav {
+	ul.navbar-nav {
+
+		@include media-breakpoint-up(xs) {
+			font-size: 1rem;
+			padding: 0.5rem 0;
+		}
 
 		.dropdown-menu {
 			border-radius: 0;
@@ -31,6 +39,12 @@ nav.bg-inverse {
 
 		}
 
+	}
+
+	.navbar-toggler {
+		border-radius: 0;
+		font-size: 1rem;
+		padding: .25rem .5rem;
 	}
 
 }

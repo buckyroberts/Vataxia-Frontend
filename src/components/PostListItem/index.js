@@ -6,7 +6,6 @@ import {deletePost} from '../../actions/posts/post/delete';
 import {createPostVote} from '../../actions/votes/post-vote/create';
 import {deletePostVote} from '../../actions/votes/post-vote/delete';
 import {editPostVote} from '../../actions/votes/post-vote/edit';
-import settings from '../../config/settings';
 import {getFullName} from '../../utils/user';
 import './PostListItem.scss';
 
@@ -15,8 +14,7 @@ class PostListItem extends Component {
 
     getPostImage() {
         const {post} = this.props;
-        if(post.image) return `${settings.API_ROOT}${post.image}`;
-        return 'http://i.imgur.com/1HHJKXC.png';
+        return post.image ? post.image : 'http://i.imgur.com/1HHJKXC.png';
     }
 
     getVoteScoreStyling() {

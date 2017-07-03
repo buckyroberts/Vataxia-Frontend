@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {getPostList} from '../../../actions/posts/post/list';
-import settings from '../../../config/settings';
 import './Photos.scss';
 
 
@@ -24,7 +23,7 @@ class Photos extends Component {
         return postList.map(post =>
             <div className="card" key={post.id}>
                 <Link to={`/profile/${post.user}/posts/${post.id}`}>
-                    <img className="card-img-top img-fluid" src={`${settings.API_ROOT}${post.image}`}/>
+                    <img className="card-img-top img-fluid" src={post.image}/>
                 </Link>
             </div>
         );

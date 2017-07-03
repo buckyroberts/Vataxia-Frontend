@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {getPost} from '../../../actions/posts/post/get';
 import PostListItem from '../../../components/PostListItem';
-import settings from '../../../config/settings';
 import PostReplyForm from '../../../forms/PostReplyForm';
 import {getFullName, getProfileImage} from '../../../utils/user';
 import './PostDetail.scss'
@@ -21,7 +20,7 @@ class PostDetail extends Component {
         if(!image) return null;
         return (
             <div className="image-container">
-                <img className="img-fluid" src={`${settings.API_ROOT}${image}`}/>
+                <img className="img-fluid" src={image}/>
             </div>
         )
     }

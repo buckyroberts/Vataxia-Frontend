@@ -3,14 +3,19 @@
 @import "./variables";
 
 nav.bg-inverse {
-	background-color: #2c3e50 !important;
+	background-color: #37474f !important;
 
 	@include media-breakpoint-up(lg) {
 		height: $navbar-height;
 	}
 
 	.navbar-brand {
-		font-size: 18px;
+
+		img	{
+			margin-bottom: 4px;
+			opacity: .85;
+		}
+
 	}
 
 	ul.navbar-nav {

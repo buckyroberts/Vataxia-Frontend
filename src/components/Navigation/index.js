@@ -118,7 +118,9 @@ class Navigation extends Component {
         return (
             <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
                 {this.renderToggleButton()}
-                <Link className="navbar-brand" to="/">Vataxia</Link>
+                <Link className="navbar-brand" to="/">
+                    <img src="http://i.imgur.com/hcDyDui.png"/>
+                </Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {this.renderUnauthenticatedMenu()}
                     {this.renderUserControls()}

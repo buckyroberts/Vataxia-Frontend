@@ -116,16 +116,14 @@ class Navigation extends Component {
 
     render() {
         return (
-            <div className="Navigation">
-                <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-                    {this.renderToggleButton()}
-                    <Link className="navbar-brand" to="/">Vataxia</Link>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        {this.renderUnauthenticatedMenu()}
-                        {this.renderUserControls()}
-                    </div>
-                </nav>
-            </div>
+            <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                {this.renderToggleButton()}
+                <Link className="navbar-brand" to="/">Vataxia</Link>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    {this.renderUnauthenticatedMenu()}
+                    {this.renderUserControls()}
+                </div>
+            </nav>
         );
     }
 

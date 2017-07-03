@@ -18,15 +18,20 @@
 
 	}
 
-	.list-group-item {
-		border-radius: 0;
-		padding: 4px 12px;
+	.list-group {
+		margin-bottom: 10px;
 
-		&.active {
-			color: white;
+		.list-group-item {
+			border-radius: 0;
+			padding: 4px 12px;
 
-			&:hover {
+			&.active {
 				color: white;
+
+				&:hover {
+					color: white;
+				}
+
 			}
 
 		}

@@ -1,11 +1,12 @@
 @import "../../../assets/scss/bootstrap/mixins/_breakpoints.scss";
 @import "../../../assets/scss/bootstrap/variables";
+@import "./variables";
 
 nav.bg-inverse {
 	background-color: #2c3e50 !important;
 
 	@include media-breakpoint-up(lg) {
-		height: 50px;
+		height: $navbar-height;
 	}
 
 	.navbar-brand {

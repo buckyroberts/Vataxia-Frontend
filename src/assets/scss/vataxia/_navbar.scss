@@ -21,6 +21,14 @@ nav.bg-inverse {
 				background-color: #e5e5e5;
 			}
 
+			.dropdown-item {
+
+				@include media-breakpoint-down(md) {
+					padding: 6px 12px;
+				}
+
+			}
+
 		}
 
 		.nav-link {

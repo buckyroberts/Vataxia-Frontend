@@ -10,11 +10,6 @@ nav.bg-inverse {
 
 	ul.navbar-nav {
 
-		@include media-breakpoint-up(xs) {
-			font-size: 1rem;
-			padding: 0.5rem 0;
-		}
-
 		.dropdown-menu {
 			border-radius: 0;
 			font-size: 12px;

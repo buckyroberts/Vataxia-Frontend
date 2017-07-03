@@ -1,5 +1,14 @@
+@import "../../../assets/scss/bootstrap/mixins/_breakpoints.scss";
+@import "../../../assets/scss/bootstrap/variables";
+
 .nav-link {
 	padding: 0;
+
+	@include media-breakpoint-down(md) {
+		font-size: 12px;
+		padding: 6px 0;
+	}
+
 }
 
 .nav-tabs {

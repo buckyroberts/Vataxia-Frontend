@@ -52,7 +52,7 @@ class PostList extends Component {
             .filter(post => post.user === Number(userId));
         if (postList.length === 0) return null;
         return (
-            <div className="card">
+            <div className="card post-section">
                 <div className="card-block">
                     {this.renderPostList(postList)}
                 </div>

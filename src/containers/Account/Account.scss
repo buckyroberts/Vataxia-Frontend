@@ -3,15 +3,15 @@
 .Account {
 
 	.sidebar {
-		position: fixed;
-		top: $navbar-height;
+		border-right: 1px solid #eee;
 		bottom: 0;
 		left: 0;
-		z-index: 1000;
-		padding: 16px 0;
 		overflow-x: hidden;
 		overflow-y: auto;
-		border-right: 1px solid #eee;
+		padding: 16px 0;
+		position: fixed;
+		top: $navbar-height;
+		z-index: 1000;
 
 		.nav {
 			margin-bottom: 20px;

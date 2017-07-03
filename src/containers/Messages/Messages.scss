@@ -48,15 +48,15 @@
 	}
 
 	.sidebar {
-		position: fixed;
-		top: $navbar-height;
+		border-right: 1px solid #eee;
 		bottom: 0;
 		left: 0;
-		z-index: 1000;
-		padding: 20px;
 		overflow-x: hidden;
 		overflow-y: auto;
-		border-right: 1px solid #eee;
+		padding: 20px;
+		position: fixed;
+		top: $navbar-height;
+		z-index: 1000;
 	}
 
 	.sidebar {

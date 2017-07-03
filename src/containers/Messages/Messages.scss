@@ -1,5 +1,6 @@
+@import "../../assets/scss/vataxia/variables";
+
 .Messages {
-	margin-top: 54px;
 
 	h1 {
 		margin-bottom: 20px;
@@ -47,15 +48,15 @@
 	}
 
 	.sidebar {
-		position: fixed;
-		top: 54px;
+		border-right: 1px solid #eee;
 		bottom: 0;
 		left: 0;
-		z-index: 1000;
-		padding: 20px;
 		overflow-x: hidden;
 		overflow-y: auto;
-		border-right: 1px solid #eee;
+		padding: 20px;
+		position: fixed;
+		top: $navbar-height;
+		z-index: 1000;
 	}
 
 	.sidebar {
@@ -89,7 +90,6 @@
 	}
 
 	.toolbar {
-		margin-top: 10px;
 		padding: 0 12px;
 
 		.btn {

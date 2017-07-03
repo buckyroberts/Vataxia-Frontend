@@ -75,14 +75,14 @@ class Profile extends Component {
                 <div className="container-fluid">
                     <div className="Profile">
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-md-2">
                                 <img src={getProfileImage(user.id, users)} className="img-fluid"/>
                                 {this.renderEditProfileImage()}
                                 <div className="user-name">{getFullName(user.id, users)}</div>
                                 {this.renderActionButtons()}
                                 {this.renderMenu()}
                             </div>
-                            <div className="col-10">
+                            <div className="col-md-10">
                                 {this.props.children}
                             </div>
                         </div>
